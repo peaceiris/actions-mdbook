@@ -52,20 +52,20 @@ jobs:
         path: coverage
 
 
-  # test-prod:
-  #   runs-on: ${{ matrix.os }}
-  #   needs: test
-  #   strategy:
-  #     matrix:
-  #       os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
-  #       mdbook-version: ['latest', '0.3.5']
+  test-prod:
+    runs-on: ${{ matrix.os }}
+    needs: test
+    strategy:
+      matrix:
+        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
+        mdbook-version: ['latest', '0.3.4']
 
-  #   steps:
-  #   - uses: actions/checkout@v1
-  #     with:
-  #       fetch-depth: 1
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
 
-  #   - name: Test action
-  #     uses: ./
-  #     with:
-  #       hugo-version: ${{ matrix.mdbook-version }}
+    - name: Test action
+      uses: ./
+      with:
+        hugo-version: ${{ matrix.mdbook-version }}
