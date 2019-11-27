@@ -4,7 +4,7 @@
 ![GitHub Actions status](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
 
-<!-- <img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.svg"> -->
+<img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.jpg">
 
 
 
