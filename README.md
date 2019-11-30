@@ -65,7 +65,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
 
     - name: Setup mdBook
       uses: peaceiris/actions-mdbook@v1
