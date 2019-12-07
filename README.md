@@ -76,7 +76,7 @@ jobs:
     - run: mdbook build
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+      uses: peaceiris/actions-gh-pages@v2
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
