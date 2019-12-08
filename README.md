@@ -148,6 +148,7 @@ services:
   mdbook:
     container_name: mdbook
     image: "peaceiris/mdbook:v${MDBOOK_VERSION}"
+    # image: "peaceiris/mdbook:v${MDBOOK_VERSION}-rust"  # Large image including Rust compiler
     stdin_open: true
     tty: true
     ports:
