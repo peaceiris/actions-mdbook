@@ -5,7 +5,6 @@ export default function getOS(platform: string) {
     return 'apple-darwin';
   } else if (platform === 'win32') {
     return 'pc-windows-msvc';
-    // throw new Error("Windows is not supported");
   } else {
     throw new Error(`${platform} is not supported`);
   }
