@@ -5,8 +5,7 @@ import installer from './installer';
 
 // most @actions toolkit packages have async methods
 async function run() {
-  const dump = async () => {
-    // Show version
+  const showVersion = async () => {
     await exec.exec('mdbook --version');
   };
 
@@ -18,7 +17,7 @@ async function run() {
         async function(latestVersion): Promise<void> {
           console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
           await installer(latestVersion);
-          await dump();
+          await showVersion();
         },
         function(error) {
           core.setFailed(error);
@@ -27,7 +26,7 @@ async function run() {
     } else {
       console.log(`mdbook version: ${mdbookVersion}`);
       await installer(mdbookVersion);
-      await dump();
+      await showVersion();
     }
   } catch (error) {
     core.setFailed(error.message);
