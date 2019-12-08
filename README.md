@@ -33,6 +33,8 @@ Linux, macOS, and Windows are supported.
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
   - [⭐️ Use the latest version of mdBook](#%EF%B8%8F-use-the-latest-version-of-mdbook)
+- [Tips](#tips)
+  - [⭐️ Read mdBook version from file](#%EF%B8%8F-read-mdbook-version-from-file)
 - [License](#license)
 - [About the author](#about-the-author)
 
@@ -107,6 +109,57 @@ This action fetches the latest version of mdBook by [mdbook — Homebrew Formula
 <div align="right">
 <a href="#table-of-contents">Back to TOC ☝️</a>
 </div>
+
+
+
+## Tips
+
+### ⭐️ Read mdBook version from file
+
+How to sync a mdBook version between a Docker Compose and a GitHub Actions workflow via `.env` file.
+
+Write a `MDBOOK_VERSION` to the `.env` file like the following and push it to a remote branch.
+
+```sh
+MDBOOK_VERSION=0.3.5
+```
+
+Next, add a step to read a mdBook version from the `.env` file.
+
+```yaml
+    - name: Read .env
+      id: mdbook-version
+      run: |
+        . ./.env
+        echo "::set-output name=MDBOOK_VERSION::${MDBOOK_VERSION}"
+
+    - name: Setup mdBook
+      uses: peaceiris/actions-mdbook@v1
+      with:
+        mdbook-version:  '${{ steps.mdbook-version.outputs.MDBOOK_VERSION }}'
+```
+
+Here is a `docker-compose.yml` example.
+
+```yaml
+version: '3'
+
+services:
+  mdbook:
+    container_name: mdbook
+    image: "peaceiris/mdbook:v${MDBOOK_VERSION}"
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ${PWD}:/book
+    command:
+      - serve
+      - --hostname
+      - '0.0.0.0'
+```
 
 
 
