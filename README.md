@@ -136,7 +136,7 @@ Next, add a step to read a mdBook version from the `.env` file.
     - name: Setup mdBook
       uses: peaceiris/actions-mdbook@v1
       with:
-        mdbook-version:  '${{ steps.mdbook-version.outputs.MDBOOK_VERSION }}'
+        mdbook-version: '${{ steps.mdbook-version.outputs.MDBOOK_VERSION }}'
 ```
 
 Here is a `docker-compose.yml` example.
