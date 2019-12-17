@@ -162,6 +162,10 @@ services:
       - '0.0.0.0'
 ```
 
+The alpine base mdBook Docker image is provided on the following repository.
+
+> [peaceiris/docker-mdbook: mdBook Alpine Base Docker Image.](https://github.com/peaceiris/docker-mdbook)
+
 
 
 ## License
