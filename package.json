@@ -10,7 +10,8 @@
     "build": "ncc build ./src/index.ts -o lib",
     "tsc": "tsc",
     "format": "prettier --write **/*.ts",
-    "format:check": "prettier --check **/*.ts"
+    "format:check": "prettier --check **/*.ts",
+    "release": "standard-version"
   },
   "husky": {
     "skipCI": true,
