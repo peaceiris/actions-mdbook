@@ -88,11 +88,13 @@ jobs:
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
     - name: Commit build assets
+      id: commit-build-assets
       run: |
         git add ./lib/index.js
         git commit -m "ci: Add build assets"
+        echo "::set-output name=build-sha::$(git rev-parse HEAD)"
 
     - name: Test action
-      uses: ./
+      uses: peaceiris/actions-mdbook@${{ steps.commit-build-assets.outputs.build-sha }}
       with:
         mdbook-version: ${{ matrix.mdbook-version }}
