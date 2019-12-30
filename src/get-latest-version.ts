@@ -48,13 +48,12 @@ export default async function getLatestVersion(
   const xhr = new XMLHttpRequest();
   const url = getURL(org, repo, api);
   xhr.open('GET', url);
-  xhr.send();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const result: Json = JSON.parse(xhr.responseText);
-      return getLatest(api, result);
-    } else if (xhr.readyState === 4 && xhr.status !== 200) {
-      throw `ERROR: got status ${xhr.status} of ${url}`;
-    }
+  xhr.onload = () => {
+    const result: Json = JSON.parse(xhr.responseText);
+    return getLatest(api, result);
   };
+  xhr.onerror = () => {
+    throw `ERROR: got status ${xhr.status} of ${url}`;
+  };
+  xhr.send();
 }
