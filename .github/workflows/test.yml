@@ -79,6 +79,8 @@ jobs:
         name: build-assets
         path: lib/index.js
 
+    - run: ls -la ./lib
+
     - name: Test action
       uses: ./
       with:
