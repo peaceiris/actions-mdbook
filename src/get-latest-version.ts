@@ -47,12 +47,14 @@ export default async function getLatestVersion(
 ): Promise<any> {
   const xhr = new XMLHttpRequest();
   const url = getURL(org, repo, api);
+  core.debug(`url: ${url}`);
+  let LatestVersion: string = '';
   xhr.open('GET', url);
   xhr.onload = () => {
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         const result: Json = JSON.parse(xhr.responseText);
-        return getLatest(api, result);
+        LatestVersion = getLatest(api, result);
       }
     }
   };
@@ -60,4 +62,6 @@ export default async function getLatestVersion(
     throw `ERROR: got status ${xhr.status} of ${url}`;
   };
   xhr.send();
+
+  return LatestVersion;
 }
