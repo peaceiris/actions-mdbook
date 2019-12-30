@@ -75,6 +75,13 @@ jobs:
         name: build-assets
         path: lib/index.js
 
+    - name: Setup Git
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add ./lib/index.js
+        git commit -m "ci: Add build assets"
+
     - name: Test action
       uses: ./
       with:
