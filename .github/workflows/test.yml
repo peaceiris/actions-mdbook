@@ -16,8 +16,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-18.04
-
     steps:
+
     - uses: actions/checkout@v2
 
     - name: Read .nvmrc
@@ -45,10 +45,12 @@ jobs:
 
     - run: npm test
 
-    - name: Check ncc
-      run: |
-        npm run build
-        test -z "$(git status --short)"
+    - run: npm run build
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: build-assets
+        path: lib/index.js
 
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
@@ -64,9 +66,14 @@ jobs:
       matrix:
         os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
         mdbook-version: ['latest', '0.3.4']
-
     steps:
+
     - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v1
+      with:
+        name: build-assets
+        path: lib/index.js
 
     - name: Test action
       uses: ./
