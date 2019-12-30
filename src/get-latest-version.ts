@@ -50,14 +50,13 @@ export default function getLatestVersion(
     const url = getURL(org, repo, api);
     xhr.open('GET', url);
     xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const result: Json = JSON.parse(xhr.responseText);
-        const latestVersion: string = getLatest(api, result);
-        resolve(latestVersion);
-      } else if (xhr.readyState === 4 && xhr.status !== 200) {
-        reject(`ERROR: got status ${xhr.status} of ${url}`);
-      }
+    xhr.onload = () => {
+      const result: Json = JSON.parse(xhr.responseText);
+      const latestVersion: string = getLatest(api, result);
+      resolve(latestVersion);
+    };
+    xhr.onerror = () => {
+      reject(`ERROR: got status ${xhr.status} of ${url}`);
     };
   });
 }
