@@ -11,7 +11,7 @@ interface Json {
 
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-function getURL(org: string, repo: string, api: string): string {
+async function getURL(org: string, repo: string, api: string): Promise<string> {
   let url: string = '';
 
   if (api === 'brew') {
@@ -25,7 +25,7 @@ function getURL(org: string, repo: string, api: string): string {
   return url;
 }
 
-function getLatest(api: string, data: Json): string {
+async function getLatest(api: string, data: Json): Promise<string> {
   let latestVersion: string = '';
 
   if (api === 'brew') {
@@ -46,19 +46,19 @@ export default async function getLatestVersion(
   api: string
 ): Promise<any> {
   const xhr = new XMLHttpRequest();
-  const url = getURL(org, repo, api);
-  core.debug(`url: ${url}`);
+  const url = await getURL(org, repo, api);
+  core.debug(`Source URL: ${url}`);
   let LatestVersion: string = '';
   xhr.open('GET', url);
-  xhr.onload = () => {
+  xhr.onload = async () => {
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         const result: Json = JSON.parse(xhr.responseText);
-        LatestVersion = getLatest(api, result);
+        LatestVersion = await getLatest(api, result);
       }
     }
   };
-  xhr.onerror = () => {
+  xhr.onerror = async () => {
     throw `ERROR: got status ${xhr.status} of ${url}`;
   };
   xhr.send();
