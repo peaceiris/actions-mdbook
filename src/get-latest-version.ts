@@ -40,24 +40,21 @@ function getLatest(api: string, data: Json): string {
   return latestVersion;
 }
 
-export default function getLatestVersion(
+export default async function getLatestVersion(
   org: string,
   repo: string,
   api: string
-): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    const url = getURL(org, repo, api);
-    xhr.open('GET', url);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const result: Json = JSON.parse(xhr.responseText);
-        const latestVersion: string = getLatest(api, result);
-        resolve(latestVersion);
-      } else if (xhr.readyState === 4 && xhr.status !== 200) {
-        reject(`ERROR: got status ${xhr.status} of ${url}`);
-      }
-    };
-  });
+): Promise<any> {
+  const xhr = new XMLHttpRequest();
+  const url = getURL(org, repo, api);
+  xhr.open('GET', url);
+  xhr.send();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const result: Json = JSON.parse(xhr.responseText);
+      return getLatest(api, result);
+    } else if (xhr.readyState === 4 && xhr.status !== 200) {
+      throw `ERROR: got status ${xhr.status} of ${url}`;
+    }
+  };
 }
