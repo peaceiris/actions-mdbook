@@ -94,7 +94,11 @@ jobs:
         git commit -m "ci: Add build assets"
         echo "::set-output name=build-sha::$(git rev-parse HEAD)"
 
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ steps.commit-build-assets.outputs.build-sha }}
+
     - name: Test action
-      uses: peaceiris/actions-mdbook@${{ steps.commit-build-assets.outputs.build-sha }}
+      uses: ./
       with:
         mdbook-version: ${{ matrix.mdbook-version }}
