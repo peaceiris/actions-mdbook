@@ -13,7 +13,7 @@ async function run() {
     const mdbookVersion: string = core.getInput('mdbook-version');
 
     if (mdbookVersion === '' || mdbookVersion === 'latest') {
-      getLatestVersion().then(
+      getLatestVersion('rust-lang', 'mdbook', 'brew').then(
         async function(latestVersion): Promise<void> {
           console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
           await installer(latestVersion);
