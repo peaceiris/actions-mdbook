@@ -13,16 +13,14 @@ async function run() {
     const mdbookVersion: string = core.getInput('mdbook-version');
 
     if (mdbookVersion === '' || mdbookVersion === 'latest') {
-      getLatestVersion('rust-lang', 'mdbook', 'brew').then(
-        async function(latestVersion): Promise<void> {
-          console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
-          await installer(latestVersion);
-          await showVersion();
-        },
-        function(error) {
-          core.setFailed(error);
-        }
+      const latestVersion: string = await getLatestVersion(
+        'rust-lang',
+        'mdbook',
+        'brew'
       );
+      console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
+      await installer(latestVersion);
+      await showVersion();
     } else {
       console.log(`mdbook version: ${mdbookVersion}`);
       await installer(mdbookVersion);

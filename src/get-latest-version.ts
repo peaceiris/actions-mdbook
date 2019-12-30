@@ -40,7 +40,7 @@ function getLatest(api: string, data: Json): string {
   return latestVersion;
 }
 
-export default function getLatestVersion(
+export default async function getLatestVersion(
   org: string,
   repo: string,
   api: string
