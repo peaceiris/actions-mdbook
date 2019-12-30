@@ -47,7 +47,8 @@ jobs:
 
     - run: npm run build
 
-    - uses: actions/upload-artifact@v1
+    - name: Upload build assets
+      uses: actions/upload-artifact@v1
       with:
         name: build-assets
         path: lib/index.js
@@ -70,17 +71,13 @@ jobs:
 
     - uses: actions/checkout@v2
 
-    - uses: actions/download-artifact@v1
+    - run: mkdir ./lib
+
+    - name: Download build assets
+      uses: actions/download-artifact@v1
       with:
         name: build-assets
         path: lib/index.js
-
-    - name: Setup Git
-      run: |
-        git config user.name "${GITHUB_ACTOR}"
-        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git add ./lib/index.js
-        git commit -m "ci: Add build assets"
 
     - name: Test action
       uses: ./
