@@ -1,6 +1,6 @@
 {
   "name": "actions-mdbook",
-  "version": "1.0.3",
+  "version": "1.1.0-0",
   "description": "GitHub Actions for mdBook",
   "main": "lib/index.js",
   "scripts": {
@@ -11,13 +11,14 @@
     "tsc": "tsc",
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
-    "release": "standard-version"
+    "release": "standard-version",
+    "docker:build": "docker build . -t actions-mdbook-dev:latest --file ./__tests__/Dockerfile",
+    "docker:run": "docker run --rm -i -t -v ${PWD}:/repo -v ~/.gitconfig:/etc/gitconfig actions-mdbook-dev:latest"
   },
   "husky": {
     "skipCI": true,
     "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "npm run build && echo '⚠️ Do not forget to Commit and Push ./lib/index.js'"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

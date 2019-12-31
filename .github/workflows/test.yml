@@ -14,10 +14,51 @@ on:
       - master
 
 jobs:
-  test:
+  code-health:
     runs-on: ubuntu-18.04
-
     steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
+        id: nvm
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache npm
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+
+      - run: npm run format:check
+
+      - run: npm run lint
+
+      - run: npm run build
+
+
+  test:
+    runs-on: ${{ matrix.os }}
+    needs: code-health
+    strategy:
+      matrix:
+        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
+    steps:
+
     - uses: actions/checkout@v2
 
     - name: Read .nvmrc
@@ -29,46 +70,25 @@ jobs:
       with:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
-    - name: Cache
+    - name: Get npm cache directory
+      id: npm-cache
+      run: |
+        echo "::set-output name=dir::$(npm config get cache)"
+
+    - name: Cache npm
       uses: actions/cache@v1
       with:
-        path: ~/.npm
+        path: ${{ steps.npm-cache.outputs.dir }}
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
 
     - run: npm ci
 
-    - run: npm run format:check
-
-    - run: npm run lint
-
     - run: npm test
-
-    - name: Check ncc
-      run: |
-        npm run build
-        test -z "$(git status --short)"
 
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
       with:
         name: coverage
         path: coverage
-
-
-  test-prod:
-    runs-on: ${{ matrix.os }}
-    needs: test
-    strategy:
-      matrix:
-        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
-        mdbook-version: ['latest', '0.3.4']
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Test action
-      uses: ./
-      with:
-        mdbook-version: ${{ matrix.mdbook-version }}

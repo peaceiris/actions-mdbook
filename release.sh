@@ -3,23 +3,37 @@
 # fail on unset variables and command errors
 set -eu -o pipefail # -x: is for debugging
 
-RELEASE_BRANCH="release-${1}"
+BASE_BRANCH="$(git branch --show-current)"
 
-if [ "$(git branch --show-current)" != "master" ]; then
-    echo "Current branch is not master" 1>&2
-    exit 1
+echo "Base branch is ${BASE_BRANCH}, continue? (y/n)"
+read -r res
+if [ "${res}" = "n" ]; then
+  echo "Stop script"
+  exit 0
 fi
 
-if [ $# -ne 1 ]; then
-    echo "Length of argument must be 1" 1>&2
-    exit 1
+RELEASE_TYPE_LIST="major minor patch premajor preminor prepatch prerelease"
+
+if command -v fzf; then
+  RELEASE_TYPE=$(echo "${RELEASE_TYPE_LIST}" | tr ' ' '\n' | fzf --layout=reverse)
+else
+  select sel in ${RELEASE_TYPE_LIST}; do
+    RELEASE_TYPE="${sel}"
+    break
+  done
 fi
+
+echo "Create ${RELEASE_TYPE} release"
+RELEASE_BRANCH="release-${RELEASE_TYPE}"
+echo "Release branch is ${RELEASE_BRANCH}"
 
 git fetch origin
-git pull origin master
+git push origin "${BASE_BRANCH}"
+git pull origin "${BASE_BRANCH}"
 
 if ! git branch "${RELEASE_BRANCH}"; then
-    exit 1
+  exit 1
 fi
+
 git checkout "${RELEASE_BRANCH}"
 git push origin "${RELEASE_BRANCH}"
