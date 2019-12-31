@@ -6,7 +6,7 @@ set -eu -o pipefail # -x: is for debugging
 BASE_BRANCH="$(git branch --show-current)"
 
 echo "Base branch is ${BASE_BRANCH}, continue? (y/n)"
-read res
+read -r res
 if [ "${res}" = "n" ]; then
   echo "Stop script"
   exit 0
