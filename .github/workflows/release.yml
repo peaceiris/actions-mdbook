@@ -97,7 +97,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BASE_REF="${{ github.event.base_ref }}"
-          BASE_BRANCH="${BASE_BRANCH#refs/heads/}"
+          BASE_BRANCH="${BASE_REF#refs/heads/}"
           USER_ID="${GITHUB_REPOSITORY%/*}"
           hub pull-request \
             --draft \
