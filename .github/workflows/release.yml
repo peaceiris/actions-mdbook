@@ -34,30 +34,38 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
-      - name: Cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - run: npm ci
 
-      - name: Prepare release
-        if: github.event.before == '0000000000000000000000000000000000000000'
+      - name: Setup Git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Commit build assets
+        run: |
+          mkdir ./lib
+          npm run build
+          git add ./lib/index.js
+          git commit -m "ci: Add build assets"
+
+      - name: Prepare release
+        run: |
           git fetch origin
           npm run release -- --release-as "${RELEASE_TYPE}" --preset eslint
           git push origin "${BRANCH_NAME}"
           export TAG_NAME="v$(jq -r '.version' ./package.json)"
           git push origin "${TAG_NAME}"
           echo "::set-env name=TAG_NAME::${TAG_NAME}"
+
+      - name: Remove build assets
+        run: |
+          git rm ./lib/index.js
+          rm -rf ./lib
+          git commit -m "ci: Remove build assets"
+          git push origin "${BRANCH_NAME}"
 
       - name: Install hub
         run: |
