@@ -37,6 +37,7 @@ Linux, macOS, and Windows are supported.
   - [⭐️ Read mdBook version from file](#%EF%B8%8F-read-mdbook-version-from-file)
 - [License](#license)
 - [About the author](#about-the-author)
+- [Maintainer notes](#maintainer-notes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -179,6 +180,23 @@ The alpine base mdBook Docker image is provided on the following repository.
 ## About the author
 
 - [peaceiris's homepage](https://peaceiris.com/)
+
+
+
+## Maintainer notes
+
+Run `npm` and `git commit` commands on a container.
+
+```sh
+# On host
+npm run docker:build
+npm run docker:run
+
+# On Container
+npm test
+git add ./__tests__
+git commit -m "test: Add something"
+```
 
 
 
