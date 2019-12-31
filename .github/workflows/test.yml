@@ -14,8 +14,41 @@ on:
       - master
 
 jobs:
+  code-health:
+    runs-on: ubuntu-18.04
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
+        id: nvm
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - name: Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+
+      - run: npm run format:check
+
+      - run: npm run lint
+
+      - run: npm run build
+
+
   test:
     runs-on: ${{ matrix.os }}
+    needs: code-health
     strategy:
       matrix:
         os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
@@ -42,13 +75,7 @@ jobs:
 
     - run: npm ci
 
-    - run: npm run format:check
-
-    - run: npm run lint
-
     - run: npm test
-
-    - run: npm run build
 
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
