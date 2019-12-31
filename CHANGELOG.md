@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# 1.1.0-0 (2019-12-31)
+
+
+### ci
+
+* Add build assets ([ad4ae66](https://github.com/peaceiris/actions-mdbook/commit/ad4ae6651ef8065b334183227282577711b4209f))
+* Fix CHANGELOG diff ([e30d78d](https://github.com/peaceiris/actions-mdbook/commit/e30d78d4734bbfbc4579dbbefa449edd4925b941))
+
+
+
 ## 1.0.3 (2019-12-29)
 
 
