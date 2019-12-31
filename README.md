@@ -29,21 +29,21 @@ Linux, macOS, and Windows are supported.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Getting started](#getting-started)
+- [Getting Started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
   - [⭐️ Use the latest version of mdBook](#%EF%B8%8F-use-the-latest-version-of-mdbook)
 - [Tips](#tips)
   - [⭐️ Read mdBook version from file](#%EF%B8%8F-read-mdbook-version-from-file)
 - [License](#license)
-- [About the author](#about-the-author)
-- [Maintainer notes](#maintainer-notes)
+- [About Maintainer](#about-maintainer)
+- [Maintainer Notes](#maintainer-notes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 
-## Getting started
+## Getting Started
 
 ### ⭐️ Create your workflow
 
@@ -177,13 +177,13 @@ The alpine base mdBook Docker image is provided on the following repository.
 
 
 
-## About the author
+## About Maintainer
 
 - [peaceiris's homepage](https://peaceiris.com/)
 
 
 
-## Maintainer notes
+## Maintainer Notes
 
 Run `npm` and `git commit` commands on a container.
 
