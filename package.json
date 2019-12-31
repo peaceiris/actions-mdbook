@@ -13,7 +13,7 @@
     "format:check": "prettier --check **/*.ts",
     "release": "standard-version",
     "docker:build": "docker build . -t actions-mdbook-dev:latest --file ./__tests__/Dockerfile",
-    "docker:run": "docker run --rm -i -t -v ${PWD}:/repo actions-mdbook-dev:latest"
+    "docker:run": "docker run --rm -i -t -v ${PWD}:/repo -v ~/.gitconfig:/etc/gitconfig actions-mdbook-dev:latest"
   },
   "husky": {
     "skipCI": true,

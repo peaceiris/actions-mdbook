@@ -1,9 +1,11 @@
-FROM node:12-alpine3.11
+FROM node:12-slim
 
 WORKDIR /repo
 
-RUN apk add --no-cache \
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends \
     git \
-    bash
+    bash && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD [ "bash" ]
