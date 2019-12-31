@@ -15,7 +15,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
     steps:
 
     - uses: actions/checkout@v2
@@ -52,20 +55,3 @@ jobs:
       with:
         name: coverage
         path: coverage
-
-
-#  test-prod:
-#    runs-on: ${{ matrix.os }}
-#    needs: test
-#    strategy:
-#      matrix:
-#        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
-#        mdbook-version: ['latest', '0.3.4']
-#    steps:
-#
-#    - uses: actions/checkout@v2
-#
-#    - name: Test action
-#      uses: ./
-#      with:
-#        mdbook-version: ${{ matrix.mdbook-version }}
