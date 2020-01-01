@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# 1.1.0 (2020-01-01)
+
+
+### ci
+
+* Add build assets ([801db9a](https://github.com/peaceiris/actions-mdbook/commit/801db9afa412d0ad104f12f0494ce81da44e75c0))
+* Fix BASE_BRANCH of hub pull-request ([11dc2f5](https://github.com/peaceiris/actions-mdbook/commit/11dc2f5d9cf49200de60e3c0b5a895d2d57e3f46))
+
+
+
 # 1.1.0-0 (2019-12-31)
 
 
