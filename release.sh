@@ -8,7 +8,7 @@ if [ "$(git branch --show-current)" != "master" ]; then
   exit 1
 fi
 
-RELEASE_TYPE_LIST="major minor patch premajor preminor prepatch prerelease"
+RELEASE_TYPE_LIST="prerelease prepatch patch preminor minor major premajor"
 if command -v fzf; then
   RELEASE_TYPE=$(echo "${RELEASE_TYPE_LIST}" | tr ' ' '\n' | fzf --layout=reverse)
 else
