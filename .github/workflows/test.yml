@@ -87,6 +87,10 @@ jobs:
 
     - run: npm test
 
+    - name: Post Coveralls
+      if: startsWith(matrix.os, 'ubuntu')
+      run: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
       with:
