@@ -187,12 +187,20 @@ The alpine base mdBook Docker image is provided on the following repository.
 
 Run `npm` and `git commit` commands on a container.
 
+**On Host**
+
 ```sh
-# On host
+# Docker
 npm run docker:build
 npm run docker:run
 
-# On Container
+# Release
+./release.sh
+```
+
+**On Container**
+
+```sh
 npm test
 git add ./__tests__
 git commit -m "test: Add something"
