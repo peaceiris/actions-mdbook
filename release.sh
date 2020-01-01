@@ -4,8 +4,25 @@
 set -eu -o pipefail # -x: is for debugging
 
 if [ "$(git branch --show-current)" != "master" ]; then
-  echo "Current branch is not master" 1>&2
+  echo "$0: Current branch is not master" 1>&2
   exit 1
+fi
+
+RELEASE_TYPE_LIST="major minor patch premajor preminor prepatch prerelease"
+if command -v fzf; then
+  RELEASE_TYPE=$(echo "${RELEASE_TYPE_LIST}" | tr ' ' '\n' | fzf --layout=reverse)
+else
+  select sel in ${RELEASE_TYPE_LIST}; do
+    RELEASE_TYPE="${sel}"
+    break
+  done
+fi
+
+echo "$0: Create ${RELEASE_TYPE} release, continue? (y/n)"
+read -r res
+if [ "${res}" = "n" ]; then
+  echo "$0: Stop script"
+  exit 0
 fi
 
 git fetch origin
@@ -17,7 +34,7 @@ npm run build
 git add ./lib/index.js
 git commit -m "chore(release): Add build assets"
 
-npm run release --preset eslint
+npm run release -- --release-as "${RELEASE_TYPE}" --preset eslint
 
 git rm ./lib/index.js
 rm -rf ./lib
