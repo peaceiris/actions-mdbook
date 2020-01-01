@@ -87,15 +87,20 @@ jobs:
 
     - run: npm test
 
-    - name: Post Coveralls
-      if: startsWith(matrix.os, 'ubuntu')
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        COVERALLS_SERVICE_NAME: ${{ secrets.COVERALLS_SERVICE_NAME }}
-      run: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
-
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
       with:
         name: coverage
         path: coverage
+
+    - name: Post Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel: true
+
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
