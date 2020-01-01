@@ -2,13 +2,12 @@ name: Release
 
 on:
   push:
-    branches:
-      - 'release-*'
+    tags:
+    - 'v*.*.*'
 
 jobs:
   release:
     runs-on: ubuntu-18.04
-    if: github.event.before == '0000000000000000000000000000000000000000'
     steps:
 
       - uses: actions/checkout@v2
@@ -17,56 +16,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "${GITHUB_CONTEXT}"
-
-      - name: Set release env
-        run: |
-          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
-          RELEASE_TYPE="${BRANCH_NAME#release-}"
-          echo "::set-env name=BRANCH_NAME::${BRANCH_NAME}"
-          echo "::set-env name=RELEASE_TYPE::${RELEASE_TYPE}"
-
-      - name: Read .nvmrc
-        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
-        id: nvm
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
-
-      - run: npm ci
-
-      - name: Setup Git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-
-      - name: Commit build assets
-        run: |
-          mkdir ./lib
-          npm run build
-          git add ./lib/index.js
-          git commit -m "ci: Add build assets"
-
-      - name: Prepare release
-        run: |
-          echo "::set-env name=CHANGELOG_SHA::$(git rev-parse HEAD)"
-          git fetch origin
-          npm run release -- --release-as "${RELEASE_TYPE}" --preset eslint
-          git push origin "${BRANCH_NAME}"
-          export TAG_NAME="v$(jq -r '.version' ./package.json)"
-          git push origin "${TAG_NAME}"
-          echo "::set-env name=TAG_NAME::${TAG_NAME}"
-
-      - name: Remove build assets
-        run: |
-          git rm ./lib/index.js
-          rm -rf ./lib
-          git commit -m "ci: Remove build assets"
-          git push origin "${BRANCH_NAME}"
 
       - name: Install hub
         run: |
@@ -84,23 +33,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git diff "${CHANGELOG_SHA}" HEAD ./CHANGELOG.md | grep "^+" | sed -e '1d' | sed -e 's/^+//g' > ./release_notes.md
+          TAG_NAME="${GITHUB_REF##refs/tags/}"
+          git log -n 1 -p ./CHANGELOG.md | grep "^+" | sed -e '1d' | sed -e 's/^+//g' > ./release_notes.md
           sed -i "1iRelease ${TAG_NAME}\n" ./release_notes.md
           hub release create \
             --draft \
             --prerelease \
             --file ./release_notes.md \
             "${TAG_NAME}"
-
-      - name: Open Pull Request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          BASE_REF="${{ github.event.base_ref }}"
-          BASE_BRANCH="${BASE_REF#refs/heads/}"
-          USER_ID="${GITHUB_REPOSITORY%/*}"
-          hub pull-request \
-            --draft \
-            --base "${USER_ID}:${BASE_BRANCH}" \
-            --head ${USER_ID}:"${BRANCH_NAME}" \
-            --message "Release ${TAG_NAME}"
