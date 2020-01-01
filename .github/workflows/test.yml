@@ -3,8 +3,6 @@ name: 'Test'
 on:
   pull_request:
     types: [opened, synchronize]
-    branches-ignore:
-      - 'release-*'
     paths-ignore:
       - '**.md'
   push:
