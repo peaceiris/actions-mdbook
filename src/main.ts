@@ -4,12 +4,17 @@ import getLatestVersion from './get-latest-version';
 import installer from './installer';
 
 export interface actionResult {
+  exitcode: number;
   output: string;
   error: string;
 }
 
-async function showVersion(cmd: string, args: string[]): Promise<actionResult> {
+export async function showVersion(
+  cmd: string,
+  args: string[]
+): Promise<actionResult> {
   let result: actionResult = {
+    exitcode: 0,
     output: '',
     error: ''
   };
@@ -25,7 +30,10 @@ async function showVersion(cmd: string, args: string[]): Promise<actionResult> {
     }
   };
 
-  await exec.exec(cmd, args, options);
+  result.exitcode = await exec.exec(cmd, args, options);
+  core.debug(`exit code: ${result.exitcode}`);
+  core.debug(`stdout: ${result.output}`);
+  core.debug(`stderr: ${result.error}`);
   return result;
 }
 
@@ -35,6 +43,7 @@ export async function run(): Promise<any> {
     const mdbookVersion: string = core.getInput('mdbook-version');
 
     let result: actionResult = {
+      exitcode: 0,
       output: '',
       error: ''
     };
@@ -47,12 +56,12 @@ export async function run(): Promise<any> {
       );
       console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
       await installer(latestVersion);
-      result = await showVersion('mdbook', ['--version']);
     } else {
       console.log(`mdbook version: ${mdbookVersion}`);
       await installer(mdbookVersion);
-      result = await showVersion('mdbook', ['--version']);
     }
+
+    result = await showVersion('mdbook', ['--version']);
 
     return result;
   } catch (error) {

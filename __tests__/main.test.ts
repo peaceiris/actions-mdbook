@@ -25,3 +25,20 @@ describe('run()', () => {
     expect(result.output).toMatch(/mdbook v/);
   });
 });
+
+describe('showVersion()', () => {
+  let result: main.actionResult = {
+    exitcode: 0,
+    output: '',
+    error: ''
+  };
+
+  test('Success case', async () => {
+    result = await main.showVersion('git', ['--version']);
+    expect(result.exitcode).toBe(0);
+    expect(result.output).toMatch(/git version/);
+  });
+
+  // test('Failure case', async () => {
+  // });
+});
