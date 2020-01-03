@@ -1,4 +1,4 @@
-import * as core from '@actions/core';
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 interface BrewVersions {
   stable: string;
@@ -12,8 +12,6 @@ export interface JsonGithub {
   tag_name: string;
 }
 
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
 export function getURL(org: string, repo: string, api: string): string {
   let url: string = '';
 
@@ -21,8 +19,6 @@ export function getURL(org: string, repo: string, api: string): string {
     url = `https://formulae.brew.sh/api/formula/${repo}.json`;
   } else if (api === 'github') {
     url = `https://api.github.com/repos/${org}/${repo}/releases/latest`;
-  } else {
-    core.setFailed(`Source API ${api} is not supported.`);
   }
 
   return url;
