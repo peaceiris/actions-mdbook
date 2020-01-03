@@ -54,8 +54,8 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
-    "@types/node": "^13.1.1",
-    "@typescript-eslint/parser": "^2.13.0",
+    "@types/node": "^13.1.2",
+    "@typescript-eslint/parser": "^2.14.0",
     "@zeit/ncc": "^0.20.5",
     "eslint": "^6.8.0",
     "husky": "^3.1.0",
