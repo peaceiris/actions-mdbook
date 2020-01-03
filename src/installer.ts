@@ -20,8 +20,8 @@ export default async function installer(version: string) {
   const osName: string = getOS(process.platform);
   console.log(`Operating System: ${osName}`);
 
-  const mdbookURL: string = getURL(osName, version);
-  core.debug(`mdbookURL: ${mdbookURL}`);
+  const toolURL: string = getURL(osName, version);
+  core.debug(`toolURL: ${toolURL}`);
 
   let baseLocation: string;
   if (process.platform === 'win32') {
@@ -29,26 +29,26 @@ export default async function installer(version: string) {
   } else {
     baseLocation = `${process.env.HOME}`;
   }
-  const mdbookPath: string = path.join(baseLocation, 'mdbookbin');
-  await io.mkdirP(mdbookPath);
-  core.addPath(mdbookPath);
+  const toolPath: string = path.join(baseLocation, 'toolbin');
+  await io.mkdirP(toolPath);
+  core.addPath(toolPath);
 
   // Download and extract mdbook binary
   await io.mkdirP(tempDir);
-  const mdbookAssets: string = await tc.downloadTool(mdbookURL);
-  let mdbookBin: string = '';
+  const toolAssets: string = await tc.downloadTool(toolURL);
+  let toolBin: string = '';
   if (osName === 'pc-windows-msvc') {
-    const mdbookExtractedFolder: string = await tc.extractZip(
-      mdbookAssets,
+    const toolExtractedFolder: string = await tc.extractZip(
+      toolAssets,
       tempDir
     );
-    mdbookBin = `${mdbookExtractedFolder}/mdbook.exe`;
+    toolBin = `${toolExtractedFolder}/mdbook.exe`;
   } else {
-    const mdbookExtractedFolder: string = await tc.extractTar(
-      mdbookAssets,
+    const toolExtractedFolder: string = await tc.extractTar(
+      toolAssets,
       tempDir
     );
-    mdbookBin = `${mdbookExtractedFolder}/mdbook`;
+    toolBin = `${toolExtractedFolder}/mdbook`;
   }
-  await io.mv(mdbookBin, mdbookPath);
+  await io.mv(toolBin, toolPath);
 }
