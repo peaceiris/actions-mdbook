@@ -19,11 +19,11 @@ export function getBaseLocation(): string {
   return baseLocation;
 }
 
-export async function createTempDir(): Promise<string> {
+export async function createTempDir(baseLocation: string): Promise<string> {
   let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
 
   if (tempDir === '') {
-    tempDir = path.join(getBaseLocation(), 'tmp');
+    tempDir = path.join(baseLocation, 'tmp');
   }
 
   await io.mkdirP(tempDir);
@@ -39,12 +39,13 @@ export default async function installer(version: string) {
   const toolURL: string = getURL(osName, version);
   core.info(`toolURL: ${toolURL}`);
 
-  const toolPath: string = path.join(getBaseLocation(), 'toolbin');
+  const baseLocation: string = getBaseLocation();
+  const toolPath: string = path.join(baseLocation, 'toolbin');
   await io.mkdirP(toolPath);
   core.addPath(toolPath);
 
   // Download and extract mdbook binary
-  const tempDir: string = await createTempDir();
+  const tempDir: string = await createTempDir(baseLocation);
   const toolAssets: string = await tc.downloadTool(toolURL);
   let toolBin: string = '';
   if (process.platform === 'win32') {
