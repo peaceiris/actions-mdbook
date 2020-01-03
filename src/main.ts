@@ -40,7 +40,8 @@ export async function showVersion(
 // most @actions toolkit packages have async methods
 export async function run(): Promise<any> {
   try {
-    const mdbookVersion: string = core.getInput('mdbook-version');
+    let toolVersion: string = core.getInput('mdbook-version');
+    let installVersion: string = '';
 
     let result: actionResult = {
       exitcode: 0,
@@ -48,19 +49,14 @@ export async function run(): Promise<any> {
       error: ''
     };
 
-    if (mdbookVersion === '' || mdbookVersion === 'latest') {
-      const latestVersion: string = await getLatestVersion(
-        'rust-lang',
-        'mdbook',
-        'brew'
-      );
-      console.log(`mdbook version: ${latestVersion} (${mdbookVersion})`);
-      await installer(latestVersion);
+    if (toolVersion === '' || toolVersion === 'latest') {
+      installVersion = await getLatestVersion('rust-lang', 'mdbook', 'brew');
     } else {
-      console.log(`mdbook version: ${mdbookVersion}`);
-      await installer(mdbookVersion);
+      installVersion = toolVersion;
     }
 
+    console.log(`mdbook version: ${installVersion}`);
+    await installer(installVersion);
     result = await showVersion('mdbook', ['--version']);
 
     return result;
