@@ -11,7 +11,7 @@ interface Json {
 
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-function getURL(org: string, repo: string, api: string): string {
+export function getURL(org: string, repo: string, api: string): string {
   let url: string = '';
 
   if (api === 'brew') {
