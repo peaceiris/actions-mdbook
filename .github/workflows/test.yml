@@ -85,13 +85,13 @@ jobs:
 
     - run: npm test
 
-    - name: Upload test coverage
+    - name: Upload test coverage as artifact
       uses: actions/upload-artifact@v1
       with:
         name: coverage
         path: coverage
 
-    - name: Post Coveralls
+    - name: Upload test coverage to Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
