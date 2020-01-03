@@ -11,9 +11,7 @@
     "tsc": "tsc",
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
-    "release": "standard-version",
-    "docker:build": "docker build . -t actions-mdbook-dev:latest --file ./__tests__/Dockerfile",
-    "docker:run": "docker run --rm -i -t -v ${PWD}:/repo -v ~/.gitconfig:/etc/gitconfig actions-mdbook-dev:latest"
+    "release": "standard-version"
   },
   "husky": {
     "skipCI": true,
