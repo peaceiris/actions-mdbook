@@ -55,7 +55,7 @@ export async function run(): Promise<any> {
       installVersion = toolVersion;
     }
 
-    console.log(`mdbook version: ${installVersion}`);
+    core.info(`mdbook version: ${installVersion}`);
     await installer(installVersion);
     result = await showVersion('mdbook', ['--version']);
 
