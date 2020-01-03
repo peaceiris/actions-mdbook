@@ -5,15 +5,19 @@ import getOS from './get-os';
 import getURL from './get-url';
 import * as path from 'path';
 
-let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
-if (!tempDir) {
-  let baseTempLocation: string;
-  if (process.platform === 'win32') {
-    baseTempLocation = process.env['USERPROFILE'] || 'C:\\';
-  } else {
-    baseTempLocation = `${process.env.HOME}`;
+export async function createTempDir(): Promise<string> {
+  let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
+  if (tempDir === '') {
+    let baseTempLocation: string;
+    if (process.platform === 'win32') {
+      baseTempLocation = process.env['USERPROFILE'] || 'C:\\';
+    } else {
+      baseTempLocation = `${process.env.HOME}`;
+    }
+    tempDir = path.join(baseTempLocation, 'tmp');
   }
-  tempDir = path.join(baseTempLocation, 'tmp');
+  await io.mkdirP(tempDir);
+  return tempDir;
 }
 
 export default async function installer(version: string) {
@@ -34,7 +38,7 @@ export default async function installer(version: string) {
   core.addPath(toolPath);
 
   // Download and extract mdbook binary
-  await io.mkdirP(tempDir);
+  const tempDir: string = await createTempDir();
   const toolAssets: string = await tc.downloadTool(toolURL);
   let toolBin: string = '';
   if (osName === 'pc-windows-msvc') {
