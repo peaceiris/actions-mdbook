@@ -21,9 +21,11 @@ export async function getBaseLocation(): Promise<string> {
 
 export async function createTempDir(): Promise<string> {
   let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
+
   if (tempDir === '') {
     tempDir = path.join(await getBaseLocation(), 'tmp');
   }
+
   await io.mkdirP(tempDir);
   core.debug(`tempDir: ${tempDir}`);
 
@@ -45,7 +47,7 @@ export default async function installer(version: string) {
   const tempDir: string = await createTempDir();
   const toolAssets: string = await tc.downloadTool(toolURL);
   let toolBin: string = '';
-  if (osName === 'pc-windows-msvc') {
+  if (process.platform === 'win32') {
     const toolExtractedFolder: string = await tc.extractZip(
       toolAssets,
       tempDir
