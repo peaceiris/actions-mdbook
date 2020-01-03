@@ -2,7 +2,9 @@ name: 'Test'
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - synchronize
     paths-ignore:
       - '**.md'
   push:
@@ -54,7 +56,10 @@ jobs:
     needs: code-health
     strategy:
       matrix:
-        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
     steps:
 
     - uses: actions/checkout@v2
