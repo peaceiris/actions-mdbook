@@ -4,14 +4,17 @@ interface BrewVersions {
   stable: string;
 }
 
-interface Json {
-  tag_name: string;
+export interface JsonBrew {
   versions: BrewVersions;
+}
+
+export interface JsonGithub {
+  tag_name: string;
 }
 
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-function getURL(org: string, repo: string, api: string): string {
+export function getURL(org: string, repo: string, api: string): string {
   let url: string = '';
 
   if (api === 'brew') {
@@ -25,18 +28,16 @@ function getURL(org: string, repo: string, api: string): string {
   return url;
 }
 
-function getLatest(api: string, data: Json): string {
+export function getLatestBrew(data: JsonBrew): string {
   let latestVersion: string = '';
+  latestVersion = data.versions.stable;
+  return latestVersion;
+}
 
-  if (api === 'brew') {
-    latestVersion = data.versions.stable;
-  } else if (api === 'github') {
-    latestVersion = data.tag_name;
-    latestVersion = latestVersion.replace('v', '');
-  } else {
-    core.setFailed(`Source API ${api} is not supported.`);
-  }
-
+export function getLatestGithub(data: JsonGithub): string {
+  let latestVersion: string = '';
+  latestVersion = data.tag_name;
+  latestVersion = latestVersion.replace('v', '');
   return latestVersion;
 }
 
@@ -51,8 +52,14 @@ export default async function getLatestVersion(
     xhr.open('GET', url);
     xhr.send();
     xhr.onload = () => {
-      const result: Json = JSON.parse(xhr.responseText);
-      const latestVersion: string = getLatest(api, result);
+      let latestVersion: string = '';
+      if (api === 'brew') {
+        const result: JsonBrew = JSON.parse(xhr.responseText);
+        latestVersion = getLatestBrew(result);
+      } else if (api === 'github') {
+        const result: JsonGithub = JSON.parse(xhr.responseText);
+        latestVersion = getLatestGithub(result);
+      }
       resolve(latestVersion);
     };
     xhr.onerror = () => {

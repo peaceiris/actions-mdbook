@@ -18,10 +18,10 @@ if (!tempDir) {
 
 export default async function installer(version: string) {
   const osName: string = getOS(process.platform);
-  console.log(`Operating System: ${osName}`);
+  core.info(`Operating System: ${osName}`);
 
   const toolURL: string = getURL(osName, version);
-  core.debug(`toolURL: ${toolURL}`);
+  core.info(`toolURL: ${toolURL}`);
 
   let baseLocation: string;
   if (process.platform === 'win32') {
