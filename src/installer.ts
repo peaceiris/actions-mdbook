@@ -5,7 +5,7 @@ import getOS from './get-os';
 import getURL from './get-url';
 import * as path from 'path';
 
-export async function getBaseLocation(): Promise<string> {
+export function getBaseLocation(): string {
   let baseLocation: string = '';
 
   if (process.platform === 'win32') {
@@ -23,7 +23,7 @@ export async function createTempDir(): Promise<string> {
   let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
 
   if (tempDir === '') {
-    tempDir = path.join(await getBaseLocation(), 'tmp');
+    tempDir = path.join(getBaseLocation(), 'tmp');
   }
 
   await io.mkdirP(tempDir);
@@ -39,7 +39,7 @@ export default async function installer(version: string) {
   const toolURL: string = getURL(osName, version);
   core.info(`toolURL: ${toolURL}`);
 
-  const toolPath: string = path.join(await getBaseLocation(), 'toolbin');
+  const toolPath: string = path.join(getBaseLocation(), 'toolbin');
   await io.mkdirP(toolPath);
   core.addPath(toolPath);
 
