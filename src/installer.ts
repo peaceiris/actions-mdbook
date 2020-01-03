@@ -17,6 +17,7 @@ export async function createTempDir(): Promise<string> {
     tempDir = path.join(baseTempLocation, 'tmp');
   }
   await io.mkdirP(tempDir);
+  core.debug(`tempDir: ${tempDir}`);
   return tempDir;
 }
 
