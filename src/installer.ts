@@ -17,42 +17,38 @@ if (!tempDir) {
 }
 
 export default async function installer(version: string) {
-  try {
-    const osName: string = getOS(process.platform);
-    console.log(`Operating System: ${osName}`);
+  const osName: string = getOS(process.platform);
+  console.log(`Operating System: ${osName}`);
 
-    const mdbookURL: string = getURL(osName, version);
-    core.debug(`mdbookURL: ${mdbookURL}`);
+  const toolURL: string = getURL(osName, version);
+  core.debug(`toolURL: ${toolURL}`);
 
-    let baseLocation: string;
-    if (process.platform === 'win32') {
-      baseLocation = process.env['USERPROFILE'] || 'C:\\';
-    } else {
-      baseLocation = `${process.env.HOME}`;
-    }
-    const mdbookPath: string = path.join(baseLocation, 'mdbookbin');
-    await io.mkdirP(mdbookPath);
-    core.addPath(mdbookPath);
-
-    // Download and extract mdbook binary
-    await io.mkdirP(tempDir);
-    const mdbookAssets: string = await tc.downloadTool(mdbookURL);
-    let mdbookBin: string = '';
-    if (osName === 'pc-windows-msvc') {
-      const mdbookExtractedFolder: string = await tc.extractZip(
-        mdbookAssets,
-        tempDir
-      );
-      mdbookBin = `${mdbookExtractedFolder}/mdbook.exe`;
-    } else {
-      const mdbookExtractedFolder: string = await tc.extractTar(
-        mdbookAssets,
-        tempDir
-      );
-      mdbookBin = `${mdbookExtractedFolder}/mdbook`;
-    }
-    await io.mv(mdbookBin, mdbookPath);
-  } catch (error) {
-    core.setFailed(error.message);
+  let baseLocation: string;
+  if (process.platform === 'win32') {
+    baseLocation = process.env['USERPROFILE'] || 'C:\\';
+  } else {
+    baseLocation = `${process.env.HOME}`;
   }
+  const toolPath: string = path.join(baseLocation, 'toolbin');
+  await io.mkdirP(toolPath);
+  core.addPath(toolPath);
+
+  // Download and extract mdbook binary
+  await io.mkdirP(tempDir);
+  const toolAssets: string = await tc.downloadTool(toolURL);
+  let toolBin: string = '';
+  if (osName === 'pc-windows-msvc') {
+    const toolExtractedFolder: string = await tc.extractZip(
+      toolAssets,
+      tempDir
+    );
+    toolBin = `${toolExtractedFolder}/mdbook.exe`;
+  } else {
+    const toolExtractedFolder: string = await tc.extractTar(
+      toolAssets,
+      tempDir
+    );
+    toolBin = `${toolExtractedFolder}/mdbook`;
+  }
+  await io.mv(toolBin, toolPath);
 }
