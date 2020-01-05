@@ -170,6 +170,12 @@ The alpine base mdBook Docker image is provided on the following repository.
 
 
 
+## CHANGELOG
+
+- [CHANGELOG.md](CHANGELOG.md)
+
+
+
 ## License
 
 - [MIT License - peaceiris/actions-mdbook]
