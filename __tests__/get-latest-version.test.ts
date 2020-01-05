@@ -8,6 +8,10 @@ beforeEach(() => {
   jest.resetModules();
 });
 
+afterEach(() => {
+  nock.cleanAll();
+});
+
 const org: string = 'rust-lang';
 const repo: string = 'mdbook';
 const urlBrewExpected: string = `https://formulae.brew.sh/api/formula/${repo}.json`;
