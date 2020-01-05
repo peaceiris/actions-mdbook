@@ -1,4 +1,4 @@
-import getOS from '../src/get-os';
+import {getOS} from '../src/get-os';
 
 describe('getOS', () => {
   test('test', () => {

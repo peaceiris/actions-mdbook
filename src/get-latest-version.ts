@@ -1,16 +1,4 @@
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
-interface BrewVersions {
-  stable: string;
-}
-
-export interface JsonBrew {
-  versions: BrewVersions;
-}
-
-export interface JsonGithub {
-  tag_name: string;
-}
+import fetch from 'node-fetch';
 
 export function getURL(org: string, repo: string, api: string): string {
   let url: string = '';
@@ -24,40 +12,23 @@ export function getURL(org: string, repo: string, api: string): string {
   return url;
 }
 
-export function getLatestBrew(data: JsonBrew): string {
-  const latestVersion: string = data.versions.stable;
-  return latestVersion;
-}
-
-export function getLatestGithub(data: JsonGithub): string {
-  let latestVersion: string = data.tag_name;
-  latestVersion = latestVersion.replace('v', '');
-  return latestVersion;
-}
-
-export default async function getLatestVersion(
+export async function getLatestVersion(
   org: string,
   repo: string,
   api: string
 ): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+  try {
     const url = getURL(org, repo, api);
-    xhr.open('GET', url);
-    xhr.send();
-    xhr.onload = () => {
-      let latestVersion: string = '';
-      if (api === 'brew') {
-        const result: JsonBrew = JSON.parse(xhr.responseText);
-        latestVersion = getLatestBrew(result);
-      } else if (api === 'github') {
-        const result: JsonGithub = JSON.parse(xhr.responseText);
-        latestVersion = getLatestGithub(result);
-      }
-      resolve(latestVersion);
-    };
-    xhr.onerror = () => {
-      reject(`ERROR: got status ${xhr.status} of ${url}`);
-    };
-  });
+    const response = await fetch(url);
+    const json = await response.json();
+    let latestVersion: string = '';
+    if (api === 'brew') {
+      latestVersion = json.versions.stable;
+    } else if (api === 'github') {
+      latestVersion = json.tag_name;
+    }
+    return latestVersion;
+  } catch (e) {
+    return e;
+  }
 }

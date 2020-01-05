@@ -1,4 +1,4 @@
-export default function getOS(platform: string) {
+export function getOS(platform: string) {
   if (platform === 'linux') {
     return 'unknown-linux-gnu';
   } else if (platform === 'darwin') {

@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
-import getLatestVersion from './get-latest-version';
-import installer from './installer';
+import {getLatestVersion} from './get-latest-version';
+import {installer} from './installer';
 
 export interface actionResult {
   exitcode: number;

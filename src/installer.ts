@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
-import getOS from './get-os';
-import getURL from './get-url';
+import {getOS} from './get-os';
+import {getURL} from './get-url';
 import * as path from 'path';
 
 export function getBaseLocation(): string {
@@ -32,7 +32,7 @@ export async function createTempDir(baseLocation: string): Promise<string> {
   return tempDir;
 }
 
-export default async function installer(version: string) {
+export async function installer(version: string) {
   const osName: string = getOS(process.platform);
   core.info(`Operating System: ${osName}`);
 

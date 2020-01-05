@@ -1,4 +1,4 @@
-import getURL from '../src/get-url';
+import {getURL} from '../src/get-url';
 
 describe('getURL()', () => {
   test('test', () => {

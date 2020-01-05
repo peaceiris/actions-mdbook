@@ -50,7 +50,8 @@
     "@actions/exec": "^1.0.2",
     "@actions/io": "^1.0.1",
     "@actions/tool-cache": "^1.1.2",
-    "xmlhttprequest": "^1.8.0"
+    "@types/node-fetch": "^2.5.4",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
@@ -62,6 +63,7 @@
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
     "lint-staged": "^9.5.0",
+    "nock": "^11.7.1",
     "prettier": "1.19.1",
     "standard-version": "^7.0.1",
     "ts-jest": "^24.2.0",
