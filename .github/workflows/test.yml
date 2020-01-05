@@ -97,7 +97,13 @@ jobs:
           path: coverage
 
       - name: Upload test coverage to Coveralls
-        if: startsWith(matrix.os, 'ubuntu')
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel: true
+
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
