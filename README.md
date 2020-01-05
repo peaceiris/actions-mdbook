@@ -36,6 +36,7 @@ Linux, macOS, and Windows are supported.
   - [⭐️ Use the latest version of mdBook](#%EF%B8%8F-use-the-latest-version-of-mdbook)
 - [Tips](#tips)
   - [⭐️ Read mdBook version from file](#%EF%B8%8F-read-mdbook-version-from-file)
+- [CHANGELOG](#changelog)
 - [License](#license)
 - [About Maintainer](#about-maintainer)
 - [Maintainer Notes](#maintainer-notes)
