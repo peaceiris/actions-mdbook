@@ -192,19 +192,14 @@ Run `npm` and `git commit` commands on a container.
 
 ```sh
 # Docker
-npm run docker:build
-npm run docker:run
+make build
+make run
+make run cmd="env"
+make test
+make commit msg="chore: Add Makefile"
 
 # Release
 ./release.sh
-```
-
-**On Container**
-
-```sh
-npm test
-git add ./__tests__
-git commit -m "test: Add something"
 ```
 
 

@@ -1,6 +1,6 @@
 import * as main from '../src/main';
 
-jest.setTimeout(20000);
+jest.setTimeout(30000);
 
 beforeEach(() => {
   jest.resetModules();

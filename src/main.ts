@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
-import getLatestVersion from './get-latest-version';
-import installer from './installer';
+import {getLatestVersion} from './get-latest-version';
+import {installer} from './installer';
 
 export interface actionResult {
   exitcode: number;
@@ -31,9 +31,11 @@ export async function showVersion(
   };
 
   result.exitcode = await exec.exec(cmd, args, options);
-  core.debug(`exit code: ${result.exitcode}`);
-  core.debug(`stdout: ${result.output}`);
-  core.debug(`stderr: ${result.error}`);
+  core.debug(`
+    exit code: ${result.exitcode}
+    stdout: ${result.output}
+    stderr: ${result.error}
+  `);
   return result;
 }
 
