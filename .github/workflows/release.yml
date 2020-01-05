@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG_NAME="${GITHUB_REF##refs/tags/}"
-          git log -n 1 -p ./CHANGELOG.md | grep "^+" | sed -e '1d' | sed -e 's/^+//g' > ./release_notes.md
+          git show "${TAG_NAME}" ./CHANGELOG.md | grep "^+" | sed -e '1d' | sed -e 's/^+//g' > ./release_notes.md
           sed -i "1iRelease ${TAG_NAME}\n" ./release_notes.md
           hub release create \
             --draft \
