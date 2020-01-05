@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.1.0](https://github.com/peaceiris/actions-mdbook/compare/v1.1.0-1...v1.1.0) (2020-01-05)
+
+
+### ci
+
+* 🎡 Add coveralls ([727b531](https://github.com/peaceiris/actions-mdbook/commit/727b53162eacd4f044d8f09cb039a084bbc1c511))
+* Add Coveralls action ([11dfa38](https://github.com/peaceiris/actions-mdbook/commit/11dfa38f43ad1a2d00a05c82afea4445a795b87b))
+* Add Coveralls Finished step for matrix test ([60fca39](https://github.com/peaceiris/actions-mdbook/commit/60fca391f4249ad70cec62ae9aa506496fb1b135))
+* Add Coveralls step ([8ac10d6](https://github.com/peaceiris/actions-mdbook/commit/8ac10d6a895b32ecfa54824d0239f3560ae259fc))
+* Fix Coveralls step ([a1388c0](https://github.com/peaceiris/actions-mdbook/commit/a1388c0b02782105bfa96ec348d7f3d9a00b4970))
+* Fix Coveralls step filter ([258d807](https://github.com/peaceiris/actions-mdbook/commit/258d807070842cd69b0f6e20b1bfb54d777a9847))
+* Remove branches-ignore ([0505b50](https://github.com/peaceiris/actions-mdbook/commit/0505b5096500cab48559740bbcc40e6131199551))
+* Remove coveralls ([ca6e120](https://github.com/peaceiris/actions-mdbook/commit/ca6e1208a9ad27039c1c6cad4bfc7e341accdd05))
+* Remove Coveralls parallel Finished step ([be5a8ce](https://github.com/peaceiris/actions-mdbook/commit/be5a8ceb7d8c53c03814f3f7fcd92da9ac35f4e8))
+* Rename steps ([8b130ac](https://github.com/peaceiris/actions-mdbook/commit/8b130ac8856863d562a2832c5329d786a286df65))
+
+### docs
+
+* Add Coverage Status badge (coveralls) ([03cf133](https://github.com/peaceiris/actions-mdbook/commit/03cf133f7a5776fd5d564bc9e2dc3525ff3571f3))
+
+### refactor
+
+* Prune duplicate lines (#29) ([87208c9](https://github.com/peaceiris/actions-mdbook/commit/87208c9fbc1b101f71e2799ee216f05f28849a4f)), closes [#29](https://github.com/peaceiris/actions-mdbook/issues/29)
+* Remove extra try-catch (#30) ([17fabeb](https://github.com/peaceiris/actions-mdbook/commit/17fabeb6e0f7c6abac79083a8f724ae720f1f6a2)), closes [#30](https://github.com/peaceiris/actions-mdbook/issues/30)
+* Remove invalid exception (#32) ([30be24c](https://github.com/peaceiris/actions-mdbook/commit/30be24c97d7ebd2dbd62640b65f65c1186dbea1f)), closes [#32](https://github.com/peaceiris/actions-mdbook/issues/32)
+* Split installer into some functions (#33) ([dd67832](https://github.com/peaceiris/actions-mdbook/commit/dd678328a032dac1ec3c01dafed4615315fee0f3)), closes [#33](https://github.com/peaceiris/actions-mdbook/issues/33)
+
+### test
+
+* Add exception test ([368f190](https://github.com/peaceiris/actions-mdbook/commit/368f190119bff55e49674e9e96d03f2d251e2834))
+* Add get-latest-version test (#31) ([258d379](https://github.com/peaceiris/actions-mdbook/commit/258d3799d4773f753327abca603c238e13e41878)), closes [#31](https://github.com/peaceiris/actions-mdbook/issues/31)
+* Add test for showVersion() (#28) ([8bd8aaa](https://github.com/peaceiris/actions-mdbook/commit/8bd8aaa7d63ae22f3f441665dd73b309ad2b7a50)), closes [#28](https://github.com/peaceiris/actions-mdbook/issues/28)
+
+
+
 # [1.1.0-1](https://github.com/peaceiris/actions-mdbook/compare/v1.0.2...v1.1.0-1) (2020-01-01)
 
 
