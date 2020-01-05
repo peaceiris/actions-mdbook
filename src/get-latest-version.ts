@@ -25,14 +25,12 @@ export function getURL(org: string, repo: string, api: string): string {
 }
 
 export function getLatestBrew(data: JsonBrew): string {
-  let latestVersion: string = '';
-  latestVersion = data.versions.stable;
+  const latestVersion: string = data.versions.stable;
   return latestVersion;
 }
 
 export function getLatestGithub(data: JsonGithub): string {
-  let latestVersion: string = '';
-  latestVersion = data.tag_name;
+  let latestVersion: string = data.tag_name;
   latestVersion = latestVersion.replace('v', '');
   return latestVersion;
 }
