@@ -1,7 +1,7 @@
 import {getURL} from '../src/get-url';
 
 describe('getURL()', () => {
-  test('test', () => {
+  test('should return extected URL', () => {
     const testVersion: string = '0.3.5';
     const baseURL: string = `https://github.com/rust-lang/mdBook/releases/download/v${testVersion}/mdbook-v${testVersion}-x86_64`;
     const urlLinux: string = `${baseURL}-unknown-linux-gnu.tar.gz`;
