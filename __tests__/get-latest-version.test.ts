@@ -18,7 +18,7 @@ const urlBrewExpected: string = `https://formulae.brew.sh/api/formula/${repo}.js
 const urlGithubExpected: string = `https://api.github.com/repos/${org}/${repo}/releases/latest`;
 
 describe('getURL()', () => {
-  test('should return expected URL', () => {
+  test('return expected URL', () => {
     const urlBrew: string = getURL(org, repo, 'brew');
     const urlGithub: string = getURL(org, repo, 'github');
 
@@ -30,7 +30,7 @@ describe('getURL()', () => {
 describe('getLatestVersion()', () => {
   let versionLatestExpected: string = '0.3.5';
 
-  test('should return latest version via brew', async () => {
+  test('return latest version via brew', async () => {
     nock('https://formulae.brew.sh')
       .get(`/api/formula/${repo}.json`)
       .reply(200, jsonTestBrew);
@@ -39,7 +39,7 @@ describe('getLatestVersion()', () => {
     expect(versionLatest).toMatch(versionLatestExpected);
   });
 
-  test('should return latest version via GitHub', async () => {
+  test('return latest version via GitHub', async () => {
     nock('https://api.github.com')
       .get(`/repos/${org}/${repo}/releases/latest`)
       .reply(200, jsonTestGithub);
@@ -48,7 +48,7 @@ describe('getLatestVersion()', () => {
     expect(versionLatest).toMatch(versionLatestExpected);
   });
 
-  test('should return exception 404', async () => {
+  test('return exception 404', async () => {
     nock('https://formulae.brew.sh')
       .get(`/api/formula/${repo}.json`)
       .reply(404);
