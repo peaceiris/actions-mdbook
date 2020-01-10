@@ -11,14 +11,14 @@ afterEach(() => {
 });
 
 describe('Integration testing run()', () => {
-  test('install custom version', async () => {
+  test('succeed in installing a custom version', async () => {
     const testVersion: string = '0.3.4';
     process.env['INPUT_MDBOOK-VERSION'] = testVersion;
     const result: main.actionResult = await main.run();
     expect(result.output).toMatch(`mdbook v${testVersion}`);
   });
 
-  test('install latest version', async () => {
+  test('succeed in installing the latest version', async () => {
     const testVersion: string = 'latest';
     process.env['INPUT_MDBOOK-VERSION'] = testVersion;
     const result: main.actionResult = await main.run();
