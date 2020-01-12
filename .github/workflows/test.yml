@@ -97,13 +97,13 @@ jobs:
           path: coverage
 
       - name: Upload test coverage to Coveralls
-        uses: coverallsapp/github-action@832e70bcbe5b5814e14e09a4d4239eeb4dd8ca3b  # v1.0.1
+        uses: coverallsapp/github-action@v1.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel: true
 
       - name: Coveralls Finished
-        uses: coverallsapp/github-action@832e70bcbe5b5814e14e09a4d4239eeb4dd8ca3b  # v1.0.1
+        uses: coverallsapp/github-action@v1.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
