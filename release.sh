@@ -27,6 +27,7 @@ fi
 
 git fetch origin
 git pull origin master
+git tag -d v1
 git pull origin --tags
 
 mkdir ./lib
