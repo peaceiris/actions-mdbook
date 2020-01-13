@@ -47,7 +47,7 @@
   "homepage": "https://github.com/peaceiris/actions-mdbook#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/exec": "^1.0.2",
+    "@actions/exec": "^1.0.3",
     "@actions/io": "^1.0.1",
     "@actions/tool-cache": "^1.1.2",
     "@types/node-fetch": "^2.5.4",
