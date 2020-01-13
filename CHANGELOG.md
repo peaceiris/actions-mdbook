@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.1](https://github.com/peaceiris/actions-mdbook/compare/v1.1.0...v1.1.1) (2020-01-13)
+
+
+### chore
+
+* Pin tag instead of commit hash ([91c48da](https://github.com/peaceiris/actions-mdbook/commit/91c48da3883c3fba683feb7fa1385527723b241c))
+
+### ci
+
+* Add [skip ci] job ([25dac88](https://github.com/peaceiris/actions-mdbook/commit/25dac8825adf5780ae117cf5677fcdb940af65f6))
+* Change release notes content ([70e81e4](https://github.com/peaceiris/actions-mdbook/commit/70e81e41cbdfc2c3bc17ed683f6fb89025bf69fc))
+* Enhance git stable tag management ([2d09e75](https://github.com/peaceiris/actions-mdbook/commit/2d09e753e4c5482bc64193f73e2d85c50def3605))
+* Fix release_notes.md ([458dd6d](https://github.com/peaceiris/actions-mdbook/commit/458dd6d78e5a8880c05eaebe534eeb44b1180b1b))
+* Pin coverallsapp/github-action to v1.0.1 (#41) ([6cc4880](https://github.com/peaceiris/actions-mdbook/commit/6cc488067d1996e3744be2196ca824aa7bae241c)), closes [#41](https://github.com/peaceiris/actions-mdbook/issues/41)
+
+### deps
+
+* update (#38) ([6ad5947](https://github.com/peaceiris/actions-mdbook/commit/6ad5947b7270d040cd634a50e874c122c048ad00)), closes [#38](https://github.com/peaceiris/actions-mdbook/issues/38)
+* update (#40) ([acf2c5c](https://github.com/peaceiris/actions-mdbook/commit/acf2c5c8269030ee35ca9f61133e9390e94c7eeb)), closes [#40](https://github.com/peaceiris/actions-mdbook/issues/40)
+* update (#47) ([4dba9ba](https://github.com/peaceiris/actions-mdbook/commit/4dba9baa1307c74b485c75c658907a260c5d229e)), closes [#47](https://github.com/peaceiris/actions-mdbook/issues/47)
+* upgrade node v12.14.1 (#37) ([edf92a1](https://github.com/peaceiris/actions-mdbook/commit/edf92a1cc10b348420ed7d81997de29efb8f7809)), closes [#37](https://github.com/peaceiris/actions-mdbook/issues/37)
+
+### docs
+
+* Add link to CHANGELOG.md ([9cdaf0d](https://github.com/peaceiris/actions-mdbook/commit/9cdaf0d3f2382fad5fa58732a93ec823b45a6957))
+* update TOC ([783aa75](https://github.com/peaceiris/actions-mdbook/commit/783aa758318a6948db9405f4fd92c3b54e6300ee))
+
+### test
+
+* Enhance test case name (#39) ([7cab470](https://github.com/peaceiris/actions-mdbook/commit/7cab470ed8f0193d18d5ac036ed6a49d721c0a2d)), closes [#39](https://github.com/peaceiris/actions-mdbook/issues/39)
+* Rename test name (#35) ([ea1428f](https://github.com/peaceiris/actions-mdbook/commit/ea1428f1d2ab0a9ded5c1a606efa812bc86e25ff)), closes [#35](https://github.com/peaceiris/actions-mdbook/issues/35)
+
+
+
 # [1.1.0](https://github.com/peaceiris/actions-mdbook/compare/v1.1.0-1...v1.1.0) (2020-01-05)
 
 
