@@ -30,6 +30,8 @@ git pull origin master
 git tag -d v1
 git pull origin --tags
 
+npm ci
+
 mkdir ./lib
 npm run build
 git add ./lib/index.js
