@@ -14,8 +14,14 @@ on:
       - master
 
 jobs:
+  skipci:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+
   code-health:
     runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
 
       - uses: actions/checkout@v2
