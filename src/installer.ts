@@ -7,7 +7,8 @@ import * as path from 'path';
 
 export async function createTempDir(baseLocation: string): Promise<string> {
   const tempDirLocation: string = process.env['RUNNER_TEMP'] || '';
-  const tempDirName: string = 'actions_mdbook_tmp';
+  const tempDirName: string =
+    'actions_mdbook_tmp_' + Math.floor(Math.random() * 10000);
   let tempDirPath: string = '';
 
   if (tempDirLocation === '') {
