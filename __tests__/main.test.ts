@@ -44,6 +44,7 @@ describe('Integration testing run()', () => {
       .reply(404);
     try {
       const result: main.actionResult = await main.run();
+      console.debug(result.output);
     } catch (e) {
       expect(e).toThrow(FetchError);
     }
@@ -57,6 +58,7 @@ describe('Integration testing run()', () => {
       .reply(404);
     try {
       const result: main.actionResult = await main.run();
+      console.debug(result.output);
     } catch (e) {
       expect(e).toThrow(FetchError);
     }
@@ -75,6 +77,7 @@ describe('Integration testing run()', () => {
       .reply(404);
     try {
       const result: main.actionResult = await main.run();
+      console.debug(result.output);
     } catch (e) {
       expect(e).toThrow(FetchError);
     }
