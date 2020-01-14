@@ -59,7 +59,8 @@ export async function run(): Promise<any> {
     result = await showVersion('mdbook', ['--version']);
 
     return result;
-  } catch (error) {
-    core.setFailed(error.message);
+  } catch (e) {
+    core.setFailed(`Action failed with error ${e}`);
+    return e;
   }
 }
