@@ -5,31 +5,21 @@ import {getOS} from './get-os';
 import {getURL} from './get-url';
 import * as path from 'path';
 
-export function getBaseLocation(): string {
-  let baseLocation: string = '';
-
-  if (process.platform === 'win32') {
-    baseLocation = process.env['USERPROFILE'] || 'C:\\';
-  } else {
-    baseLocation = `${process.env.HOME}`;
-  }
-
-  core.debug(`tempDir: ${baseLocation}`);
-
-  return baseLocation;
-}
-
 export async function createTempDir(baseLocation: string): Promise<string> {
-  let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
+  const tempDirLocation: string = process.env['RUNNER_TEMP'] || '';
+  const tempDirName: string = 'actions_mdbook_tmp';
+  let tempDirPath: string = '';
 
-  if (tempDir === '') {
-    tempDir = path.join(baseLocation, 'tmp');
+  if (tempDirLocation === '') {
+    tempDirPath = path.join(baseLocation, tempDirName);
+  } else {
+    tempDirPath = path.join(tempDirLocation, tempDirName);
   }
 
-  await io.mkdirP(tempDir);
-  core.debug(`tempDir: ${tempDir}`);
+  await io.mkdirP(tempDirPath);
+  core.debug(`tempDir: ${tempDirPath}`);
 
-  return tempDir;
+  return tempDirPath;
 }
 
 export async function installer(version: string) {
@@ -39,7 +29,7 @@ export async function installer(version: string) {
   const toolURL: string = getURL(osName, version);
   core.info(`toolURL: ${toolURL}`);
 
-  const baseLocation: string = getBaseLocation();
+  const baseLocation: string = `${process.env.HOME}`;
   const toolPath: string = path.join(baseLocation, 'toolbin');
   await io.mkdirP(toolPath);
   core.addPath(toolPath);
