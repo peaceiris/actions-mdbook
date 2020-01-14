@@ -30,7 +30,10 @@ describe('createTempDir()', () => {
   });
 
   test('return tempDir under RUNNER_TEMP', async () => {
-    const tempDirLocation: string = '/home/runner/work/_temp';
+    const tempDirLocation: string = path.join(
+      `${process.env.HOME}`,
+      '/work/_temp'
+    );
     const expectedTempDir: string = path.join(tempDirLocation, tempDirName);
     process.env['RUNNER_TEMP'] = tempDirLocation;
     fs.mkdirSync(tempDirLocation, {recursive: true});
