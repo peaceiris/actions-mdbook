@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import {getOS} from './get-os';
-import {getURL} from './get-url';
+import * as asset from './get-url';
 import * as path from 'path';
 
 export async function createTempDir(baseLocation: string): Promise<string> {
@@ -26,8 +26,8 @@ export async function installer(version: string) {
   const osName: string = getOS(process.platform);
   core.info(`Operating System: ${osName}`);
 
-  const toolURL: string = getURL(osName, version);
-  core.info(`toolURL: ${toolURL}`);
+  const toolURL: asset.assetURL = asset.getURL(osName, version);
+  core.info(`toolURL: ${toolURL.full}`);
 
   const baseLocation: string = `${process.env.HOME}`;
   const toolPath: string = path.join(baseLocation, 'toolbin');
@@ -36,7 +36,7 @@ export async function installer(version: string) {
 
   // Download and extract mdbook binary
   const tempDir: string = await createTempDir(baseLocation);
-  const toolAssets: string = await tc.downloadTool(toolURL);
+  const toolAssets: string = await tc.downloadTool(toolURL.full);
   let toolBin: string = '';
   if (process.platform === 'win32') {
     const toolExtractedFolder: string = await tc.extractZip(

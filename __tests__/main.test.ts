@@ -1,10 +1,12 @@
 import * as main from '../src/main';
+import * as tool from '../src/get-url';
 const nock = require('nock');
 import {FetchError} from 'node-fetch';
 import jsonTestBrew from './data/brew.json';
 // import jsonTestGithub from './data/github.json';
 
 jest.setTimeout(30000);
+const org: string = 'rust-lang';
 const repo: string = 'mdbook';
 
 beforeEach(() => {
@@ -37,10 +39,9 @@ describe('Integration testing run()', () => {
   test('fail to install a custom version due to 404 of tarball', async () => {
     const testVersion: string = '0.3.4';
     process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-    nock('https://github.com')
-      .get(
-        `/rust-lang/mdBook/releases/download/v${testVersion}/mdbook-v${testVersion}-x86_64-unknown-linux-gnu.tar.gz`
-      )
+    const donwloadFileURL: tool.assetURL = tool.getURL(org, repo);
+    nock(`${donwloadFileURL.domain}`)
+      .get(`/${donwloadFileURL.mid}/${donwloadFileURL.filename}`)
       .reply(404);
     try {
       const result: main.actionResult = await main.run();
@@ -70,10 +71,9 @@ describe('Integration testing run()', () => {
     nock('https://formulae.brew.sh')
       .get(`/api/formula/${repo}.json`)
       .reply(200, jsonTestBrew);
-    nock('https://github.com')
-      .get(
-        `/rust-lang/mdBook/releases/download/v0.3.5/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz`
-      )
+    const donwloadFileURL: tool.assetURL = tool.getURL(org, repo);
+    nock(`${donwloadFileURL.domain}`)
+      .get(`/${donwloadFileURL.mid}/${donwloadFileURL.filename}`)
       .reply(404);
     try {
       const result: main.actionResult = await main.run();
