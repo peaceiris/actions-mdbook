@@ -9,12 +9,15 @@ import * as fs from 'fs';
 // jest.setTimeout(30000);
 // const repo: string = 'mdbook';
 
+const originalRunnerTemp: string =
+  process.env['RUNNER_TEMP'] || '/home/runner/work/_temp';
+
 beforeEach(() => {
   jest.resetModules();
 });
 
 afterEach(() => {
-  delete process.env['RUNNER_TEMP'];
+  process.env['RUNNER_TEMP'] = originalRunnerTemp;
   // nock.cleanAll();
 });
 
