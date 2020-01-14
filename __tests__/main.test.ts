@@ -2,6 +2,7 @@ import * as main from '../src/main';
 import * as tool from '../src/get-url';
 const nock = require('nock');
 import {FetchError} from 'node-fetch';
+import * as io from '@actions/io';
 import jsonTestBrew from './data/brew.json';
 // import jsonTestGithub from './data/github.json';
 
@@ -24,6 +25,9 @@ describe('Integration testing run()', () => {
     process.env['INPUT_MDBOOK-VERSION'] = testVersion;
     const result: main.actionResult = await main.run();
     expect(result.output).toMatch(`mdbook v${testVersion}`);
+
+    const toolPath: string = await io.which('mdbook', true);
+    await io.rmRF(toolPath);
   });
 
   test('succeed in installing the latest version', async () => {
@@ -34,6 +38,9 @@ describe('Integration testing run()', () => {
       .reply(200, jsonTestBrew);
     const result: main.actionResult = await main.run();
     expect(result.output).toMatch('mdbook v0.3.5');
+
+    const toolPath: string = await io.which('mdbook', true);
+    await io.rmRF(toolPath);
   });
 
   test('fail to install a custom version due to 404 of tarball', async () => {

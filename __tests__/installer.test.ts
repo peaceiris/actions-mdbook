@@ -1,6 +1,7 @@
 import * as ins from '../src/installer';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as io from '@actions/io';
 // const nock = require('nock');
 // import {FetchError} from 'node-fetch';
 // import jsonTestBrew from './data/brew.json';
@@ -30,6 +31,7 @@ describe('createTempDir()', () => {
     const expectedTempDir: string = path.join(homeDir, tempDirName);
     const tempDir: string = await ins.createTempDir(homeDir);
     expect(tempDir).toMatch(expectedTempDir);
+    io.rmRF(tempDir);
   });
 
   test('return tempDir under RUNNER_TEMP', async () => {
@@ -43,5 +45,6 @@ describe('createTempDir()', () => {
 
     const tempDir: string = await ins.createTempDir(homeDir);
     expect(tempDir).toMatch(expectedTempDir);
+    io.rmRF(tempDir);
   });
 });
