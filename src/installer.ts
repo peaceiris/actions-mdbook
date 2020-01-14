@@ -5,11 +5,13 @@ import {getOS} from './get-os';
 import * as asset from './get-url';
 import * as path from 'path';
 
-const randStr: string = Math.floor(Math.random() * 10000).toString();
+function getRandInt(): string {
+  return Math.floor(Math.random() * 10000).toString();
+}
 
 export async function createTempDir(baseLocation: string): Promise<string> {
   const tempDirLocation: string = process.env['RUNNER_TEMP'] || '';
-  const tempDirName: string = `actions_mdbook_tmp_${randStr}`;
+  const tempDirName: string = `actions_mdbook_tmp_${getRandInt()}`;
   let tempDirPath: string = '';
 
   if (tempDirLocation === '') {
@@ -32,7 +34,10 @@ export async function installer(version: string) {
   core.info(`toolURL: ${toolURL.full}`);
 
   const baseLocation: string = `${process.env.HOME}`;
-  const toolPath: string = path.join(baseLocation, `toolbin_${randStr}`);
+  const toolPath: string = path.join(
+    baseLocation,
+    `actions_mdbook_bin_${getRandInt()}`
+  );
   await io.mkdirP(toolPath);
   core.addPath(toolPath);
 
