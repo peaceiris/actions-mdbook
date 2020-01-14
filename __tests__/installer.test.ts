@@ -22,7 +22,8 @@ describe('createTempDir()', () => {
   const homeDir: string = `${process.env.HOME}`;
   const tempDirName: string = 'actions_mdbook_tmp';
 
-  test('return tempDir', async () => {
+  test('return tempDir under HOME', async () => {
+    delete process.env['RUNNER_TEMP'];
     const expectedTempDir: string = path.join(homeDir, tempDirName);
     const tempDir: string = await ins.createTempDir(homeDir);
     expect(tempDir).toMatch(expectedTempDir);
