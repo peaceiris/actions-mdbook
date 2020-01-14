@@ -40,18 +40,14 @@ export async function installer(version: string) {
   const tempDir: string = await createTempDir(baseLocation);
   const toolAssets: string = await tc.downloadTool(toolURL.full);
   let toolBin: string = '';
+  let toolExtractedFolder: string = '';
   if (process.platform === 'win32') {
-    const toolExtractedFolder: string = await tc.extractZip(
-      toolAssets,
-      tempDir
-    );
+    toolExtractedFolder = await tc.extractZip(toolAssets, tempDir);
     toolBin = `${toolExtractedFolder}/mdbook.exe`;
   } else {
-    const toolExtractedFolder: string = await tc.extractTar(
-      toolAssets,
-      tempDir
-    );
+    toolExtractedFolder = await tc.extractTar(toolAssets, tempDir);
     toolBin = `${toolExtractedFolder}/mdbook`;
   }
   await io.mv(toolBin, toolPath);
+  await io.rmRF(tempDir);
 }
