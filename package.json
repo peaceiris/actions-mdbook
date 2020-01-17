@@ -53,13 +53,13 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.25",
-    "@types/node": "^13.1.6",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.1.7",
     "@types/node-fetch": "^2.5.4",
-    "@typescript-eslint/parser": "^2.15.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "@zeit/ncc": "^0.21.0",
     "eslint": "^6.8.0",
-    "husky": "^4.0.7",
+    "husky": "^4.0.10",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
     "lint-staged": "^9.5.0",
@@ -67,6 +67,6 @@
     "prettier": "1.19.1",
     "standard-version": "^7.0.1",
     "ts-jest": "^24.3.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   }
 }
