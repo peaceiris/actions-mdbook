@@ -187,7 +187,7 @@ The alpine base mdBook Docker image is provided on the following repository.
 
 ## About Maintainer
 
-- [peaceiris's homepage](https://peaceiris.com/)
+- [peaceiris homepage](https://peaceiris.com/)
 
 
 
