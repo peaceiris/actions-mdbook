@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.2](https://github.com/peaceiris/actions-mdbook/compare/v1.1.1...v1.1.2) (2020-01-17)
+
+
+### chore
+
+* Add task to autorun npm ci [skip ci] ([79e5422](https://github.com/peaceiris/actions-mdbook/commit/79e5422a8a9e0beda98f63468ed5116e47351940))
+* Fix update-deps task [skip ci] ([2190379](https://github.com/peaceiris/actions-mdbook/commit/2190379bfa49506ed8f132dc7611bd19142ebe70))
+* Update LICENSE year ([f4e8897](https://github.com/peaceiris/actions-mdbook/commit/f4e8897a27ae65ef9947f1d4ebec0f8b221922d9))
+
+### ci
+
+* Add npm ci [skip ci] ([ff772b1](https://github.com/peaceiris/actions-mdbook/commit/ff772b1cacb7fb4b28845bae8cad0af4c77e7bd3))
+* Merge code-health job to test job (#48) ([85b1691](https://github.com/peaceiris/actions-mdbook/commit/85b169143cd1a833f8b66bcd7036919e68a01d9d)), closes [#48](https://github.com/peaceiris/actions-mdbook/issues/48)
+
+### deps
+
+* Move @types/node-fetch under devDependencies (#51) ([18758de](https://github.com/peaceiris/actions-mdbook/commit/18758de5b7184f926be984b9a58e155d1664b3a2)), closes [#51](https://github.com/peaceiris/actions-mdbook/issues/51)
+* update (#52) ([d44a69e](https://github.com/peaceiris/actions-mdbook/commit/d44a69ece07e7f1611afe979e62ef8ec304128a7)), closes [#52](https://github.com/peaceiris/actions-mdbook/issues/52)
+
+### test
+
+* Add failure testing (#49) ([6693991](https://github.com/peaceiris/actions-mdbook/commit/66939910092a11f56e36a0e0a224f8048b6619fc)), closes [#49](https://github.com/peaceiris/actions-mdbook/issues/49)
+* Fix testing only linux (#53) ([90b51f1](https://github.com/peaceiris/actions-mdbook/commit/90b51f1ecc5bee644a9290216df12c5a595b0cb1)), closes [#53](https://github.com/peaceiris/actions-mdbook/issues/53)
+
+
+
 ## [1.1.1](https://github.com/peaceiris/actions-mdbook/compare/v1.1.0...v1.1.1) (2020-01-13)
 
 
