@@ -34,21 +34,23 @@ describe('Integration testing run()', () => {
     expect(result.output).toMatch('mdbook v0.3.5');
   });
 
-  test('fail to install a custom version due to 404 of tarball', async () => {
-    const testVersion: string = '0.3.4';
-    process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-    nock('https://github.com')
-      .get(
-        `/rust-lang/mdBook/releases/download/v${testVersion}/mdbook-v${testVersion}-x86_64-unknown-linux-gnu.tar.gz`
-      )
-      .reply(404);
-    try {
-      const result: main.actionResult = await main.run();
-      console.debug(result.output);
-    } catch (e) {
-      expect(e).toThrow(FetchError);
-    }
-  });
+  if (process.platform === 'linux') {
+    test('fail to install a custom version due to 404 of tarball', async () => {
+      const testVersion: string = '0.3.4';
+      process.env['INPUT_MDBOOK-VERSION'] = testVersion;
+      nock('https://github.com')
+        .get(
+          `/rust-lang/mdBook/releases/download/v${testVersion}/mdbook-v${testVersion}-x86_64-unknown-linux-gnu.tar.gz`
+        )
+        .reply(404);
+      try {
+        const result: main.actionResult = await main.run();
+        console.debug(result.output);
+      } catch (e) {
+        expect(e).toThrow(FetchError);
+      }
+    });
+  }
 
   test('fail to install the latest version due to 404 of brew.sh', async () => {
     const testVersion: string = 'latest';
@@ -64,24 +66,26 @@ describe('Integration testing run()', () => {
     }
   });
 
-  test('fail to install the latest version due to 404 of tarball', async () => {
-    const testVersion: string = 'latest';
-    process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${repo}.json`)
-      .reply(200, jsonTestBrew);
-    nock('https://github.com')
-      .get(
-        `/rust-lang/mdBook/releases/download/v0.3.5/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz`
-      )
-      .reply(404);
-    try {
-      const result: main.actionResult = await main.run();
-      console.debug(result.output);
-    } catch (e) {
-      expect(e).toThrow(FetchError);
-    }
-  });
+  if (process.platform === 'linux') {
+    test('fail to install the latest version due to 404 of tarball', async () => {
+      const testVersion: string = 'latest';
+      process.env['INPUT_MDBOOK-VERSION'] = testVersion;
+      nock('https://formulae.brew.sh')
+        .get(`/api/formula/${repo}.json`)
+        .reply(200, jsonTestBrew);
+      nock('https://github.com')
+        .get(
+          `/rust-lang/mdBook/releases/download/v0.3.5/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz`
+        )
+        .reply(404);
+      try {
+        const result: main.actionResult = await main.run();
+        console.debug(result.output);
+      } catch (e) {
+        expect(e).toThrow(FetchError);
+      }
+    });
+  }
 });
 
 describe('showVersion()', () => {
