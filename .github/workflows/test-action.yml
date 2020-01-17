@@ -1,0 +1,29 @@
+name: Daily Test
+
+on:
+  push:
+  schedule:
+    - cron: '14 14 * * *'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
+        mdbook-version:
+          - 'latest'
+          - '0.3.4'
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: ${{ matrix.mdbook-version }}
+
+      - run: mdbook --version
