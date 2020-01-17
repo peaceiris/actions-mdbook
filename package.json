@@ -12,7 +12,7 @@
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
     "release": "standard-version",
-    "update-deps": "(git diff 'HEAD@{1}' --name-only | grep ./package-lock.json > /dev/null) && npm ci || :"
+    "update-deps": "(git diff 'HEAD@{1}' --name-only | grep 'package-lock.json' > /dev/null) && npm ci || :"
   },
   "husky": {
     "skipCI": true,
