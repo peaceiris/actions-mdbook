@@ -3,7 +3,7 @@
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases)
 ![GitHub Actions status](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
-[![Coverage Status](https://coveralls.io/repos/github/peaceiris/actions-mdbook/badge.svg?branch=master)](https://coveralls.io/github/peaceiris/actions-mdbook?branch=master)
+[![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
 
 <img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.jpg">
 
