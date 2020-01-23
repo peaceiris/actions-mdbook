@@ -26,4 +26,9 @@ jobs:
         with:
           mdbook-version: ${{ matrix.mdbook-version }}
 
-      - run: mdbook --version
+      - name: Run mdbook --version
+        run: echo "::set-output name=mdbook_version::$(mdbook --version)"
+        id: mdbook_version
+
+      - name: '${{ steps.mdbook_version.outputs.mdbook_version }}'
+        run: echo '${{ steps.mdbook_version.outputs.mdbook_version }}'
