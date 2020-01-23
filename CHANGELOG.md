@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.3](https://github.com/peaceiris/actions-mdbook/compare/v1.1.2...v1.1.3) (2020-01-23)
+
+
+### chore
+
+* Remove unused test data (#54) ([92a3b1e](https://github.com/peaceiris/actions-mdbook/commit/92a3b1ebef86ff34a9eb02470bb505cd19ecdc9f)), closes [#54](https://github.com/peaceiris/actions-mdbook/issues/54)
+
+### ci
+
+* Add [skip ci] ([6c0c1ee](https://github.com/peaceiris/actions-mdbook/commit/6c0c1ee58eee71e01702f63eaa35874760bb91f9))
+* Add daily action test workflow [skip ci] ([4927a0d](https://github.com/peaceiris/actions-mdbook/commit/4927a0d176c1cd357e8d7082ccd8fcfd489e4378))
+* Add mdbook version dump step [skip ci] ([c71453c](https://github.com/peaceiris/actions-mdbook/commit/c71453cbb98b5967bb2b3089321cab746dcde9a7))
+* Comment out push event [skip ci] ([b861b6f](https://github.com/peaceiris/actions-mdbook/commit/b861b6fc47b5eed64a8bb0b7f811c03aaeffddbe))
+* Use Codecov instead of Coveralls (#57) ([9d13e62](https://github.com/peaceiris/actions-mdbook/commit/9d13e626cf52d3bc281b00a972c45b4471d19579)), closes [#57](https://github.com/peaceiris/actions-mdbook/issues/57)
+
+### deps
+
+* bump @types/jest from 24.9.0 to 24.9.1 (#61) ([eacd24e](https://github.com/peaceiris/actions-mdbook/commit/eacd24efeba7fa2e4e995d32f38a5fcf6d10272e)), closes [#61](https://github.com/peaceiris/actions-mdbook/issues/61)
+* bump @types/node from 13.1.8 to 13.5.0 (#59) ([e66b8ad](https://github.com/peaceiris/actions-mdbook/commit/e66b8ad1ec5db5c9feb5336f813c6e0f0fb66d33)), closes [#59](https://github.com/peaceiris/actions-mdbook/issues/59)
+* bump husky from 4.0.10 to 4.2.1 (#65) ([16c535a](https://github.com/peaceiris/actions-mdbook/commit/16c535a0150f194297dcc6b5ea6fbec32db210c7)), closes [#65](https://github.com/peaceiris/actions-mdbook/issues/65)
+* bump jest and ts-jest (#60) ([58a9e09](https://github.com/peaceiris/actions-mdbook/commit/58a9e09408b01e0ed80838fa74e06a8a45f22ba9)), closes [#60](https://github.com/peaceiris/actions-mdbook/issues/60)
+* bump jest-circus from 24.9.0 to 25.1.0 (#63) ([506fb6b](https://github.com/peaceiris/actions-mdbook/commit/506fb6bb8b976e04bd0f7d4c3ef96080a5d95342)), closes [#63](https://github.com/peaceiris/actions-mdbook/issues/63)
+* bump lint-staged from 10.0.0 to 10.0.2 (#62) ([31e2a69](https://github.com/peaceiris/actions-mdbook/commit/31e2a69e546ee71667d782fadd899769d06596bb)), closes [#62](https://github.com/peaceiris/actions-mdbook/issues/62)
+* bump standard-version from 7.0.1 to 7.1.0 (#64) ([9faa86b](https://github.com/peaceiris/actions-mdbook/commit/9faa86b6764963a137ea21bc3b9aa5f0911bae77)), closes [#64](https://github.com/peaceiris/actions-mdbook/issues/64)
+* update ([40add43](https://github.com/peaceiris/actions-mdbook/commit/40add431431ee6f05ddde4fec157bd5d8e5bdbf2))
+* update (#58) ([3502ab2](https://github.com/peaceiris/actions-mdbook/commit/3502ab28f0ecce9b379298a5309733dd032c01bf)), closes [#58](https://github.com/peaceiris/actions-mdbook/issues/58)
+
+### docs
+
+* Add back to TOC link ([c5a0c57](https://github.com/peaceiris/actions-mdbook/commit/c5a0c571d5670eb2a69d7663e01bf3603d892ee1))
+* Add Codecov badge ([8a27654](https://github.com/peaceiris/actions-mdbook/commit/8a27654a0ad8119c05d111deeb60b9c4ca90d7a5))
+* Fix link text [skip ci] ([1fc0b2b](https://github.com/peaceiris/actions-mdbook/commit/1fc0b2b1aef51ee3a800ea3ca22704d458dc650b))
+* Reindent [skip ci] ([6e68c1a](https://github.com/peaceiris/actions-mdbook/commit/6e68c1a9078d01b986d31225c0ad3726cf4db231))
+
+
+
 ## [1.1.2](https://github.com/peaceiris/actions-mdbook/compare/v1.1.1...v1.1.2) (2020-01-17)
 
 
