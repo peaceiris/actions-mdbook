@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.4](https://github.com/peaceiris/actions-mdbook/compare/v1.1.3...v1.1.4) (2020-01-24)
+
+
+### chore
+
+* Change update_schedule from weekly to daily ([0a3af4f](https://github.com/peaceiris/actions-mdbook/commit/0a3af4fdb8289762e2ac86fc4ca5bb875fdd1725))
+
+### deps
+
+* bump @actions/core from 1.2.1 to 1.2.2 (#66) ([e5043db](https://github.com/peaceiris/actions-mdbook/commit/e5043db54b0c55c91f14ad7cee1aa466c537e26a)), closes [#66](https://github.com/peaceiris/actions-mdbook/issues/66)
+* bump @actions/tool-cache from 1.3.0 to 1.3.1 (#67) ([0f94675](https://github.com/peaceiris/actions-mdbook/commit/0f946751a0ec207f8eb06bdf65f90f121efda124)), closes [#67](https://github.com/peaceiris/actions-mdbook/issues/67)
+
+
+
 ## [1.1.3](https://github.com/peaceiris/actions-mdbook/compare/v1.1.2...v1.1.3) (2020-01-23)
 
 
