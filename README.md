@@ -4,6 +4,7 @@
 ![GitHub Actions status](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
 [![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
+[![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-mdbook/releases.atom)
 
 <img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.jpg">
 
