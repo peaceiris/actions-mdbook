@@ -1,7 +1,7 @@
 [![license](https://img.shields.io/github/license/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases)
-![GitHub Actions status](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg)
+![Test](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg?branch=master&event=push)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
 [![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-mdbook/releases.atom)
