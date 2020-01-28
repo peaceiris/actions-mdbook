@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.5](https://github.com/peaceiris/actions-mdbook/compare/v1.1.4...v1.1.5) (2020-01-28)
+
+
+### chore
+
+* fix path to .gitconfig [skip ci] ([ae12f3f](https://github.com/peaceiris/actions-mdbook/commit/ae12f3f6d49001f17e4e99f19e51ee477267b15b))
+* ignore failure ([71204e7](https://github.com/peaceiris/actions-mdbook/commit/71204e7c9ef72c2e1b68398a0ac37a19b05889c7))
+
+### ci
+
+* use github/hub install script ([a1f10a9](https://github.com/peaceiris/actions-mdbook/commit/a1f10a9756658f75b05010b0836c384e507a549f))
+
+### deps
+
+* bump @types/jest from 24.9.1 to 25.1.0 (#73) ([b3a3436](https://github.com/peaceiris/actions-mdbook/commit/b3a343619edc1738dee9c61708165b0886a74061)), closes [#73](https://github.com/peaceiris/actions-mdbook/issues/73)
+* bump @typescript-eslint/parser from 2.17.0 to 2.18.0 (#72) ([00ac6b1](https://github.com/peaceiris/actions-mdbook/commit/00ac6b1c05583639a59afcbb14195bc971fa6979)), closes [#72](https://github.com/peaceiris/actions-mdbook/issues/72)
+* bump lint-staged from 10.0.2 to 10.0.3 (#74) ([dbf994b](https://github.com/peaceiris/actions-mdbook/commit/dbf994b066ca888e4b925b7a790a6ff6533df810)), closes [#74](https://github.com/peaceiris/actions-mdbook/issues/74)
+
+### docs
+
+* add release feed badge ([353aa9f](https://github.com/peaceiris/actions-mdbook/commit/353aa9fe3f9cac8f1d9433fb976a916b16b59a58))
+* update badge ([b8df9e8](https://github.com/peaceiris/actions-mdbook/commit/b8df9e80441c8cee40bfb3f29e564a515605b7e5))
+
+
+
 ## [1.1.4](https://github.com/peaceiris/actions-mdbook/compare/v1.1.3...v1.1.4) (2020-01-24)
 
 
