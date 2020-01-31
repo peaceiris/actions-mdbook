@@ -5,6 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
 [![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-mdbook/releases.atom)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=peaceiris/actions-mdbook)](https://dependabot.com)
 
 <img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.jpg">
 
