@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.6](https://github.com/peaceiris/actions-mdbook/compare/v1.1.5...v1.1.6) (2020-02-04)
+
+
+### deps
+
+* bump @types/jest from 25.1.0 to 25.1.1 (#79) ([29e309f](https://github.com/peaceiris/actions-mdbook/commit/29e309f98f8f62c078e94fc69ab95ce717c60774)), closes [#79](https://github.com/peaceiris/actions-mdbook/issues/79)
+* bump @types/node from 13.5.0 to 13.5.1 (#76) ([f9d6df4](https://github.com/peaceiris/actions-mdbook/commit/f9d6df40456810cb1f55182d915b9a062e7ecdfc)), closes [#76](https://github.com/peaceiris/actions-mdbook/issues/76)
+* bump @types/node from 13.5.1 to 13.5.2 (#78) ([27e10c3](https://github.com/peaceiris/actions-mdbook/commit/27e10c3b635aa8a8927b7c350ff6b73d51ea0e17)), closes [#78](https://github.com/peaceiris/actions-mdbook/issues/78)
+* bump @types/node from 13.5.2 to 13.5.3 (#83) ([eb7f987](https://github.com/peaceiris/actions-mdbook/commit/eb7f987d573a121ba7bbe4774380fc7349072082)), closes [#83](https://github.com/peaceiris/actions-mdbook/issues/83)
+* bump @types/node from 13.5.3 to 13.7.0 (#85) ([a93ff27](https://github.com/peaceiris/actions-mdbook/commit/a93ff272a8c32be93486cd139aaf0b9fa76baa77)), closes [#85](https://github.com/peaceiris/actions-mdbook/issues/85)
+* bump @typescript-eslint/parser from 2.18.0 to 2.19.0 (#86) ([acc4776](https://github.com/peaceiris/actions-mdbook/commit/acc47767fc0ad78dde6941d59055b1e16289f176)), closes [#86](https://github.com/peaceiris/actions-mdbook/issues/86)
+* bump lint-staged from 10.0.3 to 10.0.4 (#77) ([2b7e097](https://github.com/peaceiris/actions-mdbook/commit/2b7e09706ea957519ce1e30f08cbc8e5c4d87c54)), closes [#77](https://github.com/peaceiris/actions-mdbook/issues/77)
+* bump lint-staged from 10.0.4 to 10.0.5 (#80) ([a9409d8](https://github.com/peaceiris/actions-mdbook/commit/a9409d8496d348ae50840b40adbb151f5277c07f)), closes [#80](https://github.com/peaceiris/actions-mdbook/issues/80)
+* bump lint-staged from 10.0.5 to 10.0.6 (#81) ([9569263](https://github.com/peaceiris/actions-mdbook/commit/9569263894953d86b53cbb13e0468e1ebd4b4842)), closes [#81](https://github.com/peaceiris/actions-mdbook/issues/81)
+* bump lint-staged from 10.0.6 to 10.0.7 (#84) ([e4822d2](https://github.com/peaceiris/actions-mdbook/commit/e4822d24eda99c0f83ad541eb387acd906552eba)), closes [#84](https://github.com/peaceiris/actions-mdbook/issues/84)
+* bump ts-jest from 25.0.0 to 25.1.0 (#82) ([c4269af](https://github.com/peaceiris/actions-mdbook/commit/c4269af7d467960f862442596c03f8fa402507a6)), closes [#82](https://github.com/peaceiris/actions-mdbook/issues/82)
+* bump ts-jest from 25.1.0 to 25.2.0 (#87) ([3ad65c8](https://github.com/peaceiris/actions-mdbook/commit/3ad65c8dc7d75f86d8b8134a9f585f3d53f26b28)), closes [#87](https://github.com/peaceiris/actions-mdbook/issues/87)
+
+### docs
+
+* add Dependabot badge ([1d1b671](https://github.com/peaceiris/actions-mdbook/commit/1d1b6717bd96f3e3eb0561496b2fe251bb56e2b6))
+
+
+
 ## [1.1.5](https://github.com/peaceiris/actions-mdbook/compare/v1.1.4...v1.1.5) (2020-01-28)
 
 
