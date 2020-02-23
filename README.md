@@ -69,7 +69,7 @@ on:
       - master
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
