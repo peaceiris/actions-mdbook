@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.8](https://github.com/peaceiris/actions-mdbook/compare/v1.1.7...v1.1.8) (2020-03-13)
+
+
+### ci
+
+* update script link [skip ci] ([2abb5f3](https://github.com/peaceiris/actions-mdbook/commit/2abb5f3831b99f4374ea9580d721be9ca075e484))
+
+### deps
+
+* [security] bump acorn from 6.4.0 to 6.4.1 (#120) ([ae954ca](https://github.com/peaceiris/actions-mdbook/commit/ae954ca88b9934c8d1ff7f13c5a26afc829c2dd6)), closes [#120](https://github.com/peaceiris/actions-mdbook/issues/120)
+* bump @actions/core from 1.2.2 to 1.2.3 (#113) ([de6aa96](https://github.com/peaceiris/actions-mdbook/commit/de6aa96547f4a80d6012558512b0f437f6674f08)), closes [#113](https://github.com/peaceiris/actions-mdbook/issues/113)
+* bump @actions/tool-cache from 1.3.1 to 1.3.3 (#118) ([c3dc9d4](https://github.com/peaceiris/actions-mdbook/commit/c3dc9d4e40f824d5e0d4c1edd70555c0a8149fcf)), closes [#118](https://github.com/peaceiris/actions-mdbook/issues/118)
+* bump @types/jest from 25.1.3 to 25.1.4 (#115) ([798465a](https://github.com/peaceiris/actions-mdbook/commit/798465a83fb6b8c98d5bb225a2057cc1888e2d60)), closes [#115](https://github.com/peaceiris/actions-mdbook/issues/115)
+* bump @types/node from 12.12.28 to 12.12.29 (#110) ([ef85128](https://github.com/peaceiris/actions-mdbook/commit/ef85128ba4bb3e3cc9a1484932d8437eab6bc271)), closes [#110](https://github.com/peaceiris/actions-mdbook/issues/110)
+* bump @types/node from 12.12.29 to 12.12.30 (#119) ([847a979](https://github.com/peaceiris/actions-mdbook/commit/847a97974a751c856cb776550f689a965cbbf0c2)), closes [#119](https://github.com/peaceiris/actions-mdbook/issues/119)
+* bump @typescript-eslint/parser from 2.21.0 to 2.22.0 (#112) ([0f755ee](https://github.com/peaceiris/actions-mdbook/commit/0f755ee985ab76482fd2db5f8caa6bea93d9efe8)), closes [#112](https://github.com/peaceiris/actions-mdbook/issues/112)
+* bump @typescript-eslint/parser from 2.22.0 to 2.23.0 (#117) ([e2f07ed](https://github.com/peaceiris/actions-mdbook/commit/e2f07ed57b0037811c8ecbe8b551ba5e23ac0da2)), closes [#117](https://github.com/peaceiris/actions-mdbook/issues/117)
+* bump hub 2.14.1 to 2.14.2 ([c28a21d](https://github.com/peaceiris/actions-mdbook/commit/c28a21d602199e74cd984f75238c4d1a644155dd))
+* bump nock from 12.0.1 to 12.0.2 (#109) ([a2da2af](https://github.com/peaceiris/actions-mdbook/commit/a2da2af2dcca724c6d39519322df48f8eb2c15c3)), closes [#109](https://github.com/peaceiris/actions-mdbook/issues/109)
+* bump node 12.15.0 to 12.16.1 (#116) ([92a7c89](https://github.com/peaceiris/actions-mdbook/commit/92a7c89ff746068c3989017248a0e3d1b91c548f)), closes [#116](https://github.com/peaceiris/actions-mdbook/issues/116)
+* bump typescript from 3.8.2 to 3.8.3 (#111) ([2730552](https://github.com/peaceiris/actions-mdbook/commit/27305526dc64e869466bf7ea86c583ff2bdec87f)), closes [#111](https://github.com/peaceiris/actions-mdbook/issues/111)
+
+
+
 ## [1.1.7](https://github.com/peaceiris/actions-mdbook/compare/v1.1.6...v1.1.7) (2020-02-26)
 
 
