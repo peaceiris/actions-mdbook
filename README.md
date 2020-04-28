@@ -51,14 +51,12 @@ Linux, macOS, and Windows are supported.
 
 ### ⭐️ Create your workflow
 
-An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for GitHub Pages]
+An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for GitHub Pages].
+For the first deployment, we have to do this operation: [First Deployment with `GITHUB_TOKEN` - peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token)
 
 [GitHub Actions for GitHub Pages]: https://github.com/peaceiris/actions-gh-pages
 
 [![peaceiris/actions-gh-pages - GitHub](https://gh-card.dev/repos/peaceiris/actions-gh-pages.svg?fullname)](https://github.com/peaceiris/actions-gh-pages)
-
-![peaceiris/actions-mdbook latest version](https://img.shields.io/github/release/peaceiris/actions-mdbook.svg?label=peaceiris%2Factions-mdbook)
-![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
 
 ```yaml
 name: github pages
