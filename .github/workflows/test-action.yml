@@ -1,7 +1,6 @@
 name: Daily Test
 
 on:
-  # push:
   schedule:
     - cron: '14 14 * * *'
 
@@ -12,13 +11,13 @@ jobs:
       matrix:
         os:
           - 'ubuntu-18.04'
+          - 'ubuntu-16.04'
           - 'macos-latest'
           - 'windows-latest'
         mdbook-version:
           - 'latest'
           - '0.3.4'
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Setup mdBook
