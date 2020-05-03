@@ -17,7 +17,7 @@ jobs:
   skipci:
     runs-on: ubuntu-18.04
     steps:
-      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+      - run: echo "[skip ci] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
   test:
     runs-on: ${{ matrix.os }}
@@ -26,10 +26,10 @@ jobs:
       matrix:
         os:
           - 'ubuntu-18.04'
+          - 'ubuntu-16.04'
           - 'macos-latest'
           - 'windows-latest'
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Read .nvmrc
@@ -41,53 +41,28 @@ jobs:
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
-#      - name: Get npm cache directory
-#        id: npm-cache
-#        run: |
-#          echo "::set-output name=dir::$(npm config get cache)"
-#
-#      - name: Cache npm
-#        uses: actions/cache@v1
-#        with:
-#          path: ${{ steps.npm-cache.outputs.dir }}
-#          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#          restore-keys: |
-#            ${{ runner.os }}-node-
-
       - run: npm ci
 
       - name: Run prettier
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run format:check
 
       - name: Run eslint
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run lint
 
       - name: Run ncc
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run build
 
       - run: npm test
 
       - name: Upload test coverage as artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
-          name: coverage
+          name: coverage-${{ matrix.os }}
           path: coverage
 
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-#      - name: Upload test coverage to Coveralls
-#        uses: coverallsapp/github-action@v1.0.1
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          parallel: true
-#
-#      - name: Coveralls Finished
-#        uses: coverallsapp/github-action@v1.0.1
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          parallel-finished: true
