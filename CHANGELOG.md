@@ -2,6 +2,91 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.12](https://github.com/peaceiris/actions-mdbook/compare/v1.1.11...v1.1.12) (2020-06-21)
+
+
+### chore
+
+* Add CODEOWNERS ([51b92bc](https://github.com/peaceiris/actions-mdbook/commit/51b92bc5a9f17ee4b7ea77ba0cfa20df0a2c9dd5))
+* update url ([4c2d24c](https://github.com/peaceiris/actions-mdbook/commit/4c2d24cd712096e3eada03238c978daca3695492))
+
+### ci
+
+* add package-ecosystem github-actions ([0a75b91](https://github.com/peaceiris/actions-mdbook/commit/0a75b91a824f0bbac13e5f3aa4813c9dd19983f9))
+* Add ubuntu-16.04 ([43a7c69](https://github.com/peaceiris/actions-mdbook/commit/43a7c69f05ba421f09547943ec5bd0dc28c0b5b8))
+* bump actions/setup-node from v1 to v2.0.0 (#244) ([0376301](https://github.com/peaceiris/actions-mdbook/commit/037630147f8694d5be56405fa4b7d2b6bf620ff9)), closes [#244](https://github.com/peaceiris/actions-mdbook/issues/244)
+* bump codecov/codecov-action from v1 to v1.0.7 (#245) ([0a266e2](https://github.com/peaceiris/actions-mdbook/commit/0a266e2f2bf0f07dce87c688b103eb312eb3cba7)), closes [#245](https://github.com/peaceiris/actions-mdbook/issues/245)
+* Change update_type from all to semver:minor ([61e492a](https://github.com/peaceiris/actions-mdbook/commit/61e492a06dc291e8d11ea8da1d7682f5a10a19a7))
+* Enhance test workflow (#198) ([5cfece2](https://github.com/peaceiris/actions-mdbook/commit/5cfece2ba43befe5c7efd98a268e7ff7c6f1858e)), closes [#198](https://github.com/peaceiris/actions-mdbook/issues/198)
+* remove pull_request.types ([3045e66](https://github.com/peaceiris/actions-mdbook/commit/3045e6638554fbc5cbd5bd1e762ec9cbe6386c60))
+* Update Dependabot config file (#232) ([c0c3ce9](https://github.com/peaceiris/actions-mdbook/commit/c0c3ce921c020800e08992aa1b612ba448646300)), closes [#232](https://github.com/peaceiris/actions-mdbook/issues/232)
+
+### deps
+
+* bump @actions/core from 1.2.3 to 1.2.4 (#192) ([a848474](https://github.com/peaceiris/actions-mdbook/commit/a84847483f09d4c08189d9156dc8ff8a859799c5)), closes [#192](https://github.com/peaceiris/actions-mdbook/issues/192)
+* bump @actions/exec from 1.0.3 to 1.0.4 (#185) ([7f069b2](https://github.com/peaceiris/actions-mdbook/commit/7f069b2e0fd933d5561ea671771e1a80d45dc39b)), closes [#185](https://github.com/peaceiris/actions-mdbook/issues/185)
+* bump @actions/tool-cache from 1.3.4 to 1.3.5 (#212) ([d69fec9](https://github.com/peaceiris/actions-mdbook/commit/d69fec9968d3e010dd5b1484a70f9b60703ed49c)), closes [#212](https://github.com/peaceiris/actions-mdbook/issues/212)
+* bump @actions/tool-cache from 1.3.5 to 1.5.5 (#221) ([c4899ed](https://github.com/peaceiris/actions-mdbook/commit/c4899edb27651f2509b427c75db31c8fce97bd77)), closes [#221](https://github.com/peaceiris/actions-mdbook/issues/221)
+* bump @types/jest from 25.2.1 to 25.2.2 (#211) ([5ed67ba](https://github.com/peaceiris/actions-mdbook/commit/5ed67ba00943871f37d38036a7617381a5694b52)), closes [#211](https://github.com/peaceiris/actions-mdbook/issues/211)
+* bump @types/jest from 25.2.2 to 25.2.3 (#216) ([5299363](https://github.com/peaceiris/actions-mdbook/commit/529936375780905c40b77a0d235581c13787dd3f)), closes [#216](https://github.com/peaceiris/actions-mdbook/issues/216)
+* bump @types/jest from 25.2.3 to 26.0.0 (#239) ([ea3f17f](https://github.com/peaceiris/actions-mdbook/commit/ea3f17fc6d2f79795bde087e6e29513b67a30e0c)), closes [#239](https://github.com/peaceiris/actions-mdbook/issues/239)
+* bump @types/node from 12.12.37 to 12.12.38 (#202) ([bb100d8](https://github.com/peaceiris/actions-mdbook/commit/bb100d893ab649254e81d580ec7592f26a69c044)), closes [#202](https://github.com/peaceiris/actions-mdbook/issues/202)
+* bump @types/node from 12.12.38 to 12.12.41 (#219) ([4460a9b](https://github.com/peaceiris/actions-mdbook/commit/4460a9b8e1fa63b9f98bea20a0f016649db8f339)), closes [#219](https://github.com/peaceiris/actions-mdbook/issues/219)
+* bump @types/node from 12.12.41 to 12.12.42 (#226) ([d3219c0](https://github.com/peaceiris/actions-mdbook/commit/d3219c0ce3004f53d88da999089fd358b4d55fe4)), closes [#226](https://github.com/peaceiris/actions-mdbook/issues/226)
+* bump @types/node from 12.12.42 to 12.12.43 (#231) ([012d59a](https://github.com/peaceiris/actions-mdbook/commit/012d59a5f3c6cd5a71b3861ae8d1e41a9c689d96)), closes [#231](https://github.com/peaceiris/actions-mdbook/issues/231)
+* bump @types/node from 12.12.43 to 12.12.47 (#238) ([922c108](https://github.com/peaceiris/actions-mdbook/commit/922c1086ecdc62f1f76de975913753af86b66f4e)), closes [#238](https://github.com/peaceiris/actions-mdbook/issues/238)
+* bump @typescript-eslint/parser from 2.30.0 to 2.31.0 (#199) ([5d96605](https://github.com/peaceiris/actions-mdbook/commit/5d96605cbe277ed3b156608723a05a83a7f8c62a)), closes [#199](https://github.com/peaceiris/actions-mdbook/issues/199)
+* bump @typescript-eslint/parser from 2.31.0 to 2.32.0 (#206) ([cd904c8](https://github.com/peaceiris/actions-mdbook/commit/cd904c8332e25b22f40b08712fdb2c73ea5331ee)), closes [#206](https://github.com/peaceiris/actions-mdbook/issues/206)
+* bump @typescript-eslint/parser from 2.32.0 to 2.33.0 (#208) ([4cbbc99](https://github.com/peaceiris/actions-mdbook/commit/4cbbc99fa37dee34ae48698e3aebf53a1349f26f)), closes [#208](https://github.com/peaceiris/actions-mdbook/issues/208)
+* bump @typescript-eslint/parser from 2.33.0 to 2.34.0 (#214) ([993fddf](https://github.com/peaceiris/actions-mdbook/commit/993fddfa3b1200021e49f9541ed2bbb10d84d792)), closes [#214](https://github.com/peaceiris/actions-mdbook/issues/214)
+* bump @typescript-eslint/parser from 2.34.0 to 3.0.0 (#222) ([3fee5ea](https://github.com/peaceiris/actions-mdbook/commit/3fee5ea7f3aea0a81cc72383d0e9ae5910f43f8f)), closes [#222](https://github.com/peaceiris/actions-mdbook/issues/222)
+* bump @typescript-eslint/parser from 3.0.0 to 3.0.1 (#227) ([605c69a](https://github.com/peaceiris/actions-mdbook/commit/605c69a117e0a4b59ddbb2ad5ab0d4c0abb0cd20)), closes [#227](https://github.com/peaceiris/actions-mdbook/issues/227)
+* bump @typescript-eslint/parser from 3.0.1 to 3.0.2 (#228) ([192d6d2](https://github.com/peaceiris/actions-mdbook/commit/192d6d29eeb00d1280ebfdd54a3091bc1da29082)), closes [#228](https://github.com/peaceiris/actions-mdbook/issues/228)
+* bump @typescript-eslint/parser from 3.0.2 to 3.1.0 (#230) ([57d0d8d](https://github.com/peaceiris/actions-mdbook/commit/57d0d8d8efff47a89f476b0ecf45d81cac503ed8)), closes [#230](https://github.com/peaceiris/actions-mdbook/issues/230)
+* bump @typescript-eslint/parser from 3.1.0 to 3.2.0 (#237) ([84b93b7](https://github.com/peaceiris/actions-mdbook/commit/84b93b761f2849939eb1926c308c9382aa54076f)), closes [#237](https://github.com/peaceiris/actions-mdbook/issues/237)
+* bump @typescript-eslint/parser from 3.2.0 to 3.3.0 (#241) ([0e5022a](https://github.com/peaceiris/actions-mdbook/commit/0e5022aa6324ab9c9ade1eca4bd9c5a8823a10d0)), closes [#241](https://github.com/peaceiris/actions-mdbook/issues/241)
+* bump @zeit/ncc from 0.22.1 to 0.22.2 (#215) ([55dbe20](https://github.com/peaceiris/actions-mdbook/commit/55dbe205056e34bf3e19a7fd2f198f54a6a2f287)), closes [#215](https://github.com/peaceiris/actions-mdbook/issues/215)
+* bump @zeit/ncc from 0.22.2 to 0.22.3 (#224) ([107b843](https://github.com/peaceiris/actions-mdbook/commit/107b843dc678cda6c0e617011698674e1485fbf8)), closes [#224](https://github.com/peaceiris/actions-mdbook/issues/224)
+* bump eslint from 6.8.0 to 7.1.0 (#225) ([e91faa2](https://github.com/peaceiris/actions-mdbook/commit/e91faa268b5ec8f24bc53312d6dc98a1a203ae3d)), closes [#225](https://github.com/peaceiris/actions-mdbook/issues/225)
+* bump eslint from 7.1.0 to 7.2.0 (#236) ([a172771](https://github.com/peaceiris/actions-mdbook/commit/a172771636afcf34200e6b1036633d87f8903f80)), closes [#236](https://github.com/peaceiris/actions-mdbook/issues/236)
+* bump jest from 25.5.0 to 25.5.1 (#188) ([a77fe3f](https://github.com/peaceiris/actions-mdbook/commit/a77fe3ff14374c896f6e00c842a8a830b208d437)), closes [#188](https://github.com/peaceiris/actions-mdbook/issues/188)
+* bump jest from 25.5.1 to 25.5.2 (#190) ([28a1f56](https://github.com/peaceiris/actions-mdbook/commit/28a1f567de907253ed785d22d4992fdc5949ce46)), closes [#190](https://github.com/peaceiris/actions-mdbook/issues/190)
+* bump jest from 25.5.2 to 25.5.3 (#194) ([5702459](https://github.com/peaceiris/actions-mdbook/commit/57024593ecb2ab27d29b47485b5a6eb1f103ad52)), closes [#194](https://github.com/peaceiris/actions-mdbook/issues/194)
+* bump jest from 25.5.3 to 25.5.4 (#197) ([bc420b3](https://github.com/peaceiris/actions-mdbook/commit/bc420b32a529a852722da6f449b98453a1025cd6)), closes [#197](https://github.com/peaceiris/actions-mdbook/issues/197)
+* bump jest-circus from 25.5.0 to 25.5.1 (#187) ([0773964](https://github.com/peaceiris/actions-mdbook/commit/0773964f8c345c35718fb9920743fc27193192ad)), closes [#187](https://github.com/peaceiris/actions-mdbook/issues/187)
+* bump jest-circus from 25.5.1 to 25.5.2 (#189) ([0f1aa05](https://github.com/peaceiris/actions-mdbook/commit/0f1aa05dc5a4ddd7ea36af12750fde9bc8b14ba6)), closes [#189](https://github.com/peaceiris/actions-mdbook/issues/189)
+* bump jest-circus from 25.5.2 to 25.5.3 (#193) ([c885f11](https://github.com/peaceiris/actions-mdbook/commit/c885f113a42d948ac0488aa2f02e4fe96183a02f)), closes [#193](https://github.com/peaceiris/actions-mdbook/issues/193)
+* bump jest-circus from 25.5.3 to 25.5.4 (#196) ([bd41dfc](https://github.com/peaceiris/actions-mdbook/commit/bd41dfce1563718be131a6313e6600528227e4d2)), closes [#196](https://github.com/peaceiris/actions-mdbook/issues/196)
+* bump jest-circus from 25.5.4 to 26.0.0 (#200) ([b1d7ad6](https://github.com/peaceiris/actions-mdbook/commit/b1d7ad69644fa154a100fac4adb018ac43bdb57b)), closes [#200](https://github.com/peaceiris/actions-mdbook/issues/200)
+* bump jest-circus from 26.0.0 to 26.0.1 (#201) ([0d29c9f](https://github.com/peaceiris/actions-mdbook/commit/0d29c9fcf068bf2f3fdc707d44edefda6440ed0b)), closes [#201](https://github.com/peaceiris/actions-mdbook/issues/201)
+* bump lint-staged from 10.2.0 to 10.2.1 (#191) ([129cc74](https://github.com/peaceiris/actions-mdbook/commit/129cc743c60a7dd899c2f5a145cd23ece2b6e631)), closes [#191](https://github.com/peaceiris/actions-mdbook/issues/191)
+* bump lint-staged from 10.2.1 to 10.2.2 (#195) ([e8a5c8e](https://github.com/peaceiris/actions-mdbook/commit/e8a5c8e33573a917fcf9c9114befee69be0d8618)), closes [#195](https://github.com/peaceiris/actions-mdbook/issues/195)
+* bump lint-staged from 10.2.10 to 10.2.11 (#242) ([af3c890](https://github.com/peaceiris/actions-mdbook/commit/af3c890862a073459a477ea0dcc73a4f52d80755)), closes [#242](https://github.com/peaceiris/actions-mdbook/issues/242)
+* bump lint-staged from 10.2.2 to 10.2.4 (#213) ([a0b8a7f](https://github.com/peaceiris/actions-mdbook/commit/a0b8a7f8410c9e818cdc17c8741be08f510298ee)), closes [#213](https://github.com/peaceiris/actions-mdbook/issues/213)
+* bump lint-staged from 10.2.4 to 10.2.6 (#223) ([dccf659](https://github.com/peaceiris/actions-mdbook/commit/dccf65996cb74c00176ffda1f6b4d492ddd500f9)), closes [#223](https://github.com/peaceiris/actions-mdbook/issues/223)
+* bump lint-staged from 10.2.6 to 10.2.7 (#229) ([38f1300](https://github.com/peaceiris/actions-mdbook/commit/38f1300947419ef92a05a55c81e7e8046a333efa)), closes [#229](https://github.com/peaceiris/actions-mdbook/issues/229)
+* bump lint-staged from 10.2.7 to 10.2.8 (#233) ([ddb4bcd](https://github.com/peaceiris/actions-mdbook/commit/ddb4bcd9151b95a2ff86bb1b3f89f143b59a7431)), closes [#233](https://github.com/peaceiris/actions-mdbook/issues/233)
+* bump lint-staged from 10.2.8 to 10.2.9 (#234) ([a3a3dbb](https://github.com/peaceiris/actions-mdbook/commit/a3a3dbb6eb364267c4d905647d6c913e2148e9d0)), closes [#234](https://github.com/peaceiris/actions-mdbook/issues/234)
+* bump lint-staged from 10.2.9 to 10.2.10 (#240) ([a446c7c](https://github.com/peaceiris/actions-mdbook/commit/a446c7cf11e5741101a47b1398f9effdebd18ad0)), closes [#240](https://github.com/peaceiris/actions-mdbook/issues/240)
+* bump node from 12.16.1 to 12.16.3 (#186) ([b23748c](https://github.com/peaceiris/actions-mdbook/commit/b23748cced6b9934d903fbea9c5cabc1480c1752)), closes [#186](https://github.com/peaceiris/actions-mdbook/issues/186)
+* bump node from 12.16.3 to 12.18.1 (#243) ([7f04550](https://github.com/peaceiris/actions-mdbook/commit/7f045507b7ca7e196349bef0ec7e5d3cddccb6bf)), closes [#243](https://github.com/peaceiris/actions-mdbook/issues/243)
+* bump standard-version from 7.1.0 to 8.0.0 (#204) ([16c8ebf](https://github.com/peaceiris/actions-mdbook/commit/16c8ebfb358b94f089a714b07cfaad8b2edc70cd)), closes [#204](https://github.com/peaceiris/actions-mdbook/issues/204)
+* bump ts-jest from 25.4.0 to 25.5.0 (#203) ([ff52f12](https://github.com/peaceiris/actions-mdbook/commit/ff52f12b4bdd7bdff0174fd48e19ef495c47889e)), closes [#203](https://github.com/peaceiris/actions-mdbook/issues/203)
+* bump ts-jest from 25.5.0 to 25.5.1 (#205) ([7a3f883](https://github.com/peaceiris/actions-mdbook/commit/7a3f883eeab244950161f7ad65281262ba93f5ee)), closes [#205](https://github.com/peaceiris/actions-mdbook/issues/205)
+* bump typescript from 3.8.3 to 3.9.2 (#207) ([5fca106](https://github.com/peaceiris/actions-mdbook/commit/5fca1062cf54984431a143759d673d39dc1d7188)), closes [#207](https://github.com/peaceiris/actions-mdbook/issues/207)
+* bump typescript from 3.9.2 to 3.9.3 (#220) ([1921249](https://github.com/peaceiris/actions-mdbook/commit/192124926b8339d6cfff45b5813e8dce019aa4e0)), closes [#220](https://github.com/peaceiris/actions-mdbook/issues/220)
+* bump typescript from 3.9.3 to 3.9.5 (#235) ([173eddf](https://github.com/peaceiris/actions-mdbook/commit/173eddfca0cc95ae9f411429140eb145d78fdcfd)), closes [#235](https://github.com/peaceiris/actions-mdbook/issues/235)
+
+### docs
+
+* remove Dependabot status badge ([ec9f92e](https://github.com/peaceiris/actions-mdbook/commit/ec9f92ee5f621bc2c05459c67e24e1e6910d4201))
+
+### fix
+
+* Wrap entrypoint by async to handle exceptions correctly (#246) ([0d19991](https://github.com/peaceiris/actions-mdbook/commit/0d19991235fbfcc105f6bd13673665bce06005de)), closes [#246](https://github.com/peaceiris/actions-mdbook/issues/246)
+
+
+
 ## [1.1.11](https://github.com/peaceiris/actions-mdbook/compare/v1.1.10...v1.1.11) (2020-04-29)
 
 
