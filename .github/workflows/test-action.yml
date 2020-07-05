@@ -16,7 +16,7 @@ jobs:
           - 'windows-latest'
         mdbook-version:
           - 'latest'
-          - '0.3.4'
+          - '0.4.0'
     steps:
       - uses: actions/checkout@v2
 
