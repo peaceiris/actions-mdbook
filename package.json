@@ -54,7 +54,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.12",
+    "@types/jest": "^26.0.13",
     "@types/node": "~12",
     "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/parser": "^4.0.1",
