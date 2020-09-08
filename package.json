@@ -60,7 +60,7 @@
     "@typescript-eslint/parser": "^4.0.1",
     "@vercel/ncc": "^0.24.0",
     "eslint": "^7.8.1",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "jest": "^25.5.4",
     "jest-circus": "^26.4.2",
     "lint-staged": "^10.3.0",
