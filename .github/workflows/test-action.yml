@@ -3,6 +3,7 @@ name: Daily Test
 on:
   schedule:
     - cron: '14 14 * * *'
+  pull_request:
 
 jobs:
   test:
