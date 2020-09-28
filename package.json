@@ -59,7 +59,7 @@
     "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/parser": "^4.2.0",
     "@vercel/ncc": "^0.24.1",
-    "eslint": "^7.9.0",
+    "eslint": "^7.10.0",
     "husky": "^4.3.0",
     "jest": "^25.5.4",
     "jest-circus": "^26.4.2",
