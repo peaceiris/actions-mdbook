@@ -57,7 +57,7 @@
     "@types/jest": "^26.0.14",
     "@types/node": "~12",
     "@types/node-fetch": "^2.5.7",
-    "@typescript-eslint/parser": "^4.2.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "@vercel/ncc": "^0.24.1",
     "eslint": "^7.10.0",
     "husky": "^4.3.0",
