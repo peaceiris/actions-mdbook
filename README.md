@@ -1,3 +1,11 @@
+<h2 align="center">
+GitHub Actions for mdBook
+</h2>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/peaceiris/actions-mdbook/master/images/ogp.jpg" alt="GitHub Actions for mdBook thumbnail" width="500px">
+</div>
+
 [![license](https://img.shields.io/github/license/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases)
@@ -5,12 +13,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
 [![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-mdbook/releases.atom)
-
-<img width="400" alt="GitHub Actions for mdBook" src="./images/ogp.jpg">
-
-
-
-## GitHub Actions for mdBook
 
 [rust-lang/mdBook] Setup Action.
 
