@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.14](https://github.com/peaceiris/actions-mdbook/compare/v1.1.13...v1.1.14) (2021-01-16)
+
+
+### chore
+
+* add link to Actions Documentation ([72105da](https://github.com/peaceiris/actions-mdbook/commit/72105da021761136d7d939954e97ba37337f4c29))
+* Change default branch from master to main (#366) ([335b17e](https://github.com/peaceiris/actions-mdbook/commit/335b17e63ad7ae955d00ecdfc44fa45a9eb7f530)), closes [#366](https://github.com/peaceiris/actions-mdbook/issues/366)
+* update link to github.community ([e14a664](https://github.com/peaceiris/actions-mdbook/commit/e14a664866888fe9287072cbdce20429aa2ec0e0))
+
+### ci
+
+* add workflow_dispatch ([5fa688e](https://github.com/peaceiris/actions-mdbook/commit/5fa688e1e2a11488b894e4735cd5ea348817c594))
+* allow dependency-type production ([6759ec3](https://github.com/peaceiris/actions-mdbook/commit/6759ec3d4afc4f0ab3fbfc13743d02f80e314830))
+* bump actions/setup-node from v2.1.2 to v2.1.3 (#357) ([43f3f78](https://github.com/peaceiris/actions-mdbook/commit/43f3f780ac00aaddc20829e42b7a6a20d19af991)), closes [#357](https://github.com/peaceiris/actions-mdbook/issues/357)
+* bump actions/setup-node from v2.1.3 to v2.1.4 (#359) ([f658008](https://github.com/peaceiris/actions-mdbook/commit/f6580088a759ac9b775cd8ce47bbcf9b1af010dc)), closes [#359](https://github.com/peaceiris/actions-mdbook/issues/359)
+* bump codecov/codecov-action from v1.0.13 to v1.0.14 (#351) ([7431cad](https://github.com/peaceiris/actions-mdbook/commit/7431cad37c2425e8759bf8b38ed6d12ee5e799e0)), closes [#351](https://github.com/peaceiris/actions-mdbook/issues/351)
+* bump codecov/codecov-action from v1.0.14 to v1.0.15 (#353) ([2b39b4d](https://github.com/peaceiris/actions-mdbook/commit/2b39b4d281e3f8b633c8deb892e985663280590d)), closes [#353](https://github.com/peaceiris/actions-mdbook/issues/353)
+* bump codecov/codecov-action from v1.0.15 to v1.1.0 (#360) ([ac5d7a1](https://github.com/peaceiris/actions-mdbook/commit/ac5d7a11350113665f26cb076eea1a92a20addfe)), closes [#360](https://github.com/peaceiris/actions-mdbook/issues/360)
+* bump codecov/codecov-action from v1.1.0 to v1.1.1 (#361) ([f9c2d98](https://github.com/peaceiris/actions-mdbook/commit/f9c2d9860aa8286912d9d9eabe7737cad8cc85f7)), closes [#361](https://github.com/peaceiris/actions-mdbook/issues/361)
+* bump codecov/codecov-action from v1.1.1 to v1.2.0 (#362) ([1df2021](https://github.com/peaceiris/actions-mdbook/commit/1df202155aba45bc40adb7dba8dd2627d84f99fb)), closes [#362](https://github.com/peaceiris/actions-mdbook/issues/362)
+* bump codecov/codecov-action from v1.2.0 to v1.2.1 (#363) ([cb200ba](https://github.com/peaceiris/actions-mdbook/commit/cb200ba4803f70ea02674ecb610375289be5f3c3)), closes [#363](https://github.com/peaceiris/actions-mdbook/issues/363)
+* remove CODECOV_TOKEN (#365) ([0ab46a4](https://github.com/peaceiris/actions-mdbook/commit/0ab46a4ddf5dced80104b05bd20e274203553dbb)), closes [#365](https://github.com/peaceiris/actions-mdbook/issues/365)
+* remove options no longer needed (#355) ([e967196](https://github.com/peaceiris/actions-mdbook/commit/e9671960978b5244972878c910cc3518fd28f731)), closes [#355](https://github.com/peaceiris/actions-mdbook/issues/355)
+
+### deps
+
+* bump @actions/tool-cache from 1.6.0 to 1.6.1 (#352) ([87351a3](https://github.com/peaceiris/actions-mdbook/commit/87351a334fdf38216b9998d1ffac581b2aeda0bf)), closes [#352](https://github.com/peaceiris/actions-mdbook/issues/352)
+* bump @types/node from 12.12.63 to 12.12.64 (#345) ([85764a7](https://github.com/peaceiris/actions-mdbook/commit/85764a7fcf9c92edfd28f997ddf651544abf2693)), closes [#345](https://github.com/peaceiris/actions-mdbook/issues/345)
+* bump @types/node from 12.12.64 to 12.12.66 (#346) ([50f6fd6](https://github.com/peaceiris/actions-mdbook/commit/50f6fd6b6582e8d300d65371b4162aa5110a17da)), closes [#346](https://github.com/peaceiris/actions-mdbook/issues/346)
+* bump @types/node from 12.12.66 to 12.12.67 (#349) ([12dcaaa](https://github.com/peaceiris/actions-mdbook/commit/12dcaaa77b2a169a00abe7420a9f6f6615c2c4e7)), closes [#349](https://github.com/peaceiris/actions-mdbook/issues/349)
+* bump eslint from 7.10.0 to 7.11.0 (#347) ([59604a3](https://github.com/peaceiris/actions-mdbook/commit/59604a3ac2962c4345b7c35ce1860ef6a0fb7245)), closes [#347](https://github.com/peaceiris/actions-mdbook/issues/347)
+* bump ini from 1.3.5 to 1.3.8 (#358) ([dba1474](https://github.com/peaceiris/actions-mdbook/commit/dba14740c50393ba507a3fcc429b0eef161e6482)), closes [#358](https://github.com/peaceiris/actions-mdbook/issues/358)
+* bump jest-circus from 26.5.1 to 26.5.2 (#344) ([36bf729](https://github.com/peaceiris/actions-mdbook/commit/36bf729c1ef4d7d7e0b04478b1ef7400a6166959)), closes [#344](https://github.com/peaceiris/actions-mdbook/issues/344)
+* bump jest-circus from 26.5.2 to 26.5.3 (#348) ([ca483b8](https://github.com/peaceiris/actions-mdbook/commit/ca483b8138365d957b2b8c33f28fb454bf123618)), closes [#348](https://github.com/peaceiris/actions-mdbook/issues/348)
+* bump node from 12.18.4 to 12.19.0 (#350) ([1a08441](https://github.com/peaceiris/actions-mdbook/commit/1a08441680aade0e87125f2e060d441da9736022)), closes [#350](https://github.com/peaceiris/actions-mdbook/issues/350)
+* bump node from 12.19.0 to 12.19.1 (#354) ([10da26e](https://github.com/peaceiris/actions-mdbook/commit/10da26ebfb657ade3ec10385e6ef4b1aee32ba2e)), closes [#354](https://github.com/peaceiris/actions-mdbook/issues/354)
+* bump node from 12.19.1 to 12.20.0 (#356) ([9b5daf9](https://github.com/peaceiris/actions-mdbook/commit/9b5daf9cb4571185ec3d1f179135892dc2230fa1)), closes [#356](https://github.com/peaceiris/actions-mdbook/issues/356)
+* bump node from 12.20.0 to 12.20.1 (#364) ([5c5d965](https://github.com/peaceiris/actions-mdbook/commit/5c5d965726fc320663c5523e3d65f0eee6c5c47a)), closes [#364](https://github.com/peaceiris/actions-mdbook/issues/364)
+* update devDependencies (#368) ([8895cd8](https://github.com/peaceiris/actions-mdbook/commit/8895cd8bc0c4bb1b8a7bab68a3a061fa8ce9edc9)), closes [#368](https://github.com/peaceiris/actions-mdbook/issues/368)
+
+### docs
+
+* bump mdbook from 0.4.1 to 0.4.5 ([398b6a7](https://github.com/peaceiris/actions-mdbook/commit/398b6a7fd641ca475bb44499ae62c7b45d8b9f5a))
+* bump mdbook from 0.4.5 to 0.4.6 (#367) ([312679c](https://github.com/peaceiris/actions-mdbook/commit/312679c5ac29b07eef296a96757dd716749266e4)), closes [#367](https://github.com/peaceiris/actions-mdbook/issues/367)
+* improve header ([7275f00](https://github.com/peaceiris/actions-mdbook/commit/7275f005ddec5743ad0a286be135c47f05973233))
+
+
+
 ## [1.1.13](https://github.com/peaceiris/actions-mdbook/compare/v1.1.12...v1.1.13) (2020-10-06)
 
 
