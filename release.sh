@@ -3,8 +3,8 @@
 # fail on unset variables and command errors
 set -eu -o pipefail # -x: is for debugging
 
-if [ "$(git branch --show-current)" != "master" ]; then
-  echo "$0: Current branch is not master" 1>&2
+if [ "$(git branch --show-current)" != "main" ]; then
+  echo "$0: Current branch is not main" 1>&2
   exit 1
 fi
 
@@ -26,7 +26,7 @@ if [ "${res}" = "n" ]; then
 fi
 
 git fetch origin
-git pull origin master
+git pull origin main
 git tag -d v1 || true
 git pull origin --tags
 
@@ -44,5 +44,5 @@ rm -rf ./lib
 git commit -m "chore(release): Remove build assets [skip ci]"
 
 TAG_NAME="v$(jq -r '.version' ./package.json)"
-git push origin master
+git push origin main
 git push origin "${TAG_NAME}"

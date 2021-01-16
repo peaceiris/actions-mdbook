@@ -3,15 +3,15 @@ GitHub Actions for mdBook
 </h2>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/peaceiris/actions-mdbook/master/images/ogp.jpg" alt="GitHub Actions for mdBook thumbnail" width="500px">
+  <img src="https://raw.githubusercontent.com/peaceiris/actions-mdbook/main/images/ogp.jpg" alt="GitHub Actions for mdBook thumbnail" width="500px">
 </div>
 
-[![license](https://img.shields.io/github/license/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/blob/main/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-mdbook.svg)](https://github.com/peaceiris/actions-mdbook/releases)
-![Test](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg?branch=master&event=push)
+![Test](https://github.com/peaceiris/actions-mdbook/workflows/Test/badge.svg?branch=main&event=push)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-mdbook)
-[![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
+[![codecov](https://codecov.io/gh/peaceiris/actions-mdbook/branch/main/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-mdbook)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-mdbook/releases.atom)
 
 [rust-lang/mdBook] Setup Action.
@@ -65,7 +65,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -185,7 +185,7 @@ The alpine base mdBook Docker image is provided on the following repository.
 
 - [MIT License - peaceiris/actions-mdbook]
 
-[MIT License - peaceiris/actions-mdbook]: https://github.com/peaceiris/actions-mdbook/blob/master/LICENSE
+[MIT License - peaceiris/actions-mdbook]: https://github.com/peaceiris/actions-mdbook/blob/main/LICENSE
 
 
 
