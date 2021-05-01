@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         os:
+          - 'ubuntu-latest'
           - 'ubuntu-18.04'
-          - 'ubuntu-16.04'
           - 'macos-latest'
           - 'windows-latest'
         mdbook-version:
