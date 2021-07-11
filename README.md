@@ -80,7 +80,7 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
         with:
-          mdbook-version: '0.4.8'
+          mdbook-version: '0.4.10'
           # mdbook-version: 'latest'
 
       - run: mdbook build
@@ -129,7 +129,7 @@ How to sync a mdBook version between a Docker Compose and a GitHub Actions workf
 Write a `MDBOOK_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-MDBOOK_VERSION=0.4.8
+MDBOOK_VERSION=0.4.10
 ```
 
 Next, add a step to read a mdBook version from the `.env` file.
