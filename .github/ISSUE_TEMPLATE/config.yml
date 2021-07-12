@@ -3,9 +3,6 @@ contact_links:
   - name: GitHub Actions - GitHub Support Community Forum
     url: https://github.community/c/code-to-cloud/github-actions/41
     about: Please ask questions about GitHub Actions here.
-  - name: The Rust Programming Language Forum
-    url: https://users.rust-lang.org/
-    about: Please ask questions about mdBook and Rust here.
   - name: GitHub Actions Documentation
-    url: https://docs.github.com/en/free-pro-team@latest/actions
+    url: https://docs.github.com/en/actions
     about: GitHub Actions official documentation here.
