@@ -35,15 +35,15 @@ jobs:
       - run: npm ci
 
       - name: Run prettier
-        if: startsWith(matrix.os, 'ubuntu-18.04')
+        if: ${{ startsWith(matrix.os, 'ubuntu-18.04') }}
         run: npm run format:check
 
       - name: Run eslint
-        if: startsWith(matrix.os, 'ubuntu-18.04')
+        if: ${{ startsWith(matrix.os, 'ubuntu-18.04') }}
         run: npm run lint
 
       - name: Run ncc
-        if: startsWith(matrix.os, 'ubuntu-18.04')
+        if: ${{ startsWith(matrix.os, 'ubuntu-18.04') }}
         run: npm run build
 
       - run: npm test
