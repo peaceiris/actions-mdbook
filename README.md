@@ -21,7 +21,7 @@ GitHub Actions for mdBook
 We can run **mdBook** on a virtual machine of **GitHub Actions** by this mdBook action.
 Linux, macOS, and Windows are supported.
 
-| OS (runs-on) | ubuntu-18.04, ubuntu-20.04 | macos-latest | windows-2019 |
+| OS (runs-on) | ubuntu-20.04, ubuntu-22.04 | macos-latest | windows-2019 |
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 
