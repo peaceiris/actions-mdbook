@@ -1,6 +1,6 @@
 {
   "name": "actions-mdbook",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "GitHub Actions for mdBook",
   "main": "lib/index.js",
   "scripts": {
