@@ -77,7 +77,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+        uses: peaceiris/actions-mdbook@v2
         with:
           mdbook-version: '0.4.10'
           # mdbook-version: 'latest'
@@ -106,7 +106,7 @@ Set `mdbook-version: 'latest'` to use the latest version of mdBook.
 
 ```yaml
 - name: Setup mdBook
-  uses: peaceiris/actions-mdbook@v1
+  uses: peaceiris/actions-mdbook@v2
   with:
     mdbook-version: 'latest'
 ```
@@ -141,7 +141,7 @@ Next, add a step to read a mdBook version from the `.env` file.
         echo "::set-output name=MDBOOK_VERSION::${MDBOOK_VERSION}"
 
     - name: Setup mdBook
-      uses: peaceiris/actions-mdbook@v1
+      uses: peaceiris/actions-mdbook@v2
       with:
         mdbook-version: '${{ steps.mdbook-version.outputs.MDBOOK_VERSION }}'
 ```
