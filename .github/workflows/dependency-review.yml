@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/dependency-review-action@v4.4.0
+      - uses: actions/dependency-review-action@v4.5.0
