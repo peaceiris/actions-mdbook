@@ -3,3 +3,4 @@ coverage
 .npm
 .eslintcache
 node_modules
+.codex/
