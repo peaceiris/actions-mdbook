@@ -10,48 +10,54 @@ on:
     paths-ignore:
       - '**.md'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     strategy:
       matrix:
         os:
-          - 'ubuntu-latest'
-          - 'ubuntu-20.04'
+          - 'ubuntu-24.04'
+          # Keep the previous LTS runner in the matrix for compatibility coverage.
+          - 'ubuntu-22.04'
           - 'macos-latest'
           - 'windows-latest'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Read .nvmrc
-        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
+        shell: bash
+        run: echo "NVMRC=$(cat .nvmrc)" >> "$GITHUB_OUTPUT"
         id: nvm
 
       - name: Setup Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
       - run: npm ci
 
       - name: Run prettier
-        if: ${{ startsWith(matrix.os, 'ubuntu-latest') }}
+        if: ${{ matrix.os == 'ubuntu-24.04' }}
         run: npm run format:check
 
       - name: Run eslint
-        if: ${{ startsWith(matrix.os, 'ubuntu-latest') }}
+        if: ${{ matrix.os == 'ubuntu-24.04' }}
         run: npm run lint
 
       - name: Run ncc
-        if: ${{ startsWith(matrix.os, 'ubuntu-latest') }}
+        if: ${{ matrix.os == 'ubuntu-24.04' }}
         run: npm run build
 
       - run: npm test
 
       - name: Upload test coverage as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: coverage-${{ matrix.os }}
           path: coverage
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4
