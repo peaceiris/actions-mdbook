@@ -12,55 +12,39 @@ export async function showVersion(
   cmd: string,
   args: string[]
 ): Promise<actionResult> {
-  try {
-    let result: actionResult = {
-      exitcode: 0,
-      output: ''
-    };
+  let result: actionResult = {
+    exitcode: 0,
+    output: ''
+  };
 
-    const options = {
-      listeners: {
-        stdout: (data: Buffer) => {
-          result.output += data.toString();
-        }
+  const options = {
+    listeners: {
+      stdout: (data: Buffer) => {
+        result.output += data.toString();
       }
-    };
+    }
+  };
 
-    result.exitcode = await exec.exec(cmd, args, options);
-    core.debug(`
-      exit code: ${result.exitcode}
-      stdout: ${result.output}
-    `);
-    return result;
-  } catch (e) {
-    return e;
-  }
+  result.exitcode = await exec.exec(cmd, args, options);
+  core.debug(`
+    exit code: ${result.exitcode}
+    stdout: ${result.output}
+  `);
+  return result;
 }
 
 // most @actions toolkit packages have async methods
-export async function run(): Promise<any> {
-  try {
-    let toolVersion: string = core.getInput('mdbook-version');
-    let installVersion: string = '';
+export async function run(): Promise<actionResult> {
+  let toolVersion: string = core.getInput('mdbook-version');
+  let installVersion: string;
 
-    let result: actionResult = {
-      exitcode: 0,
-      output: ''
-    };
-
-    if (toolVersion === '' || toolVersion === 'latest') {
-      installVersion = await getLatestVersion('rust-lang', 'mdbook', 'brew');
-    } else {
-      installVersion = toolVersion;
-    }
-
-    core.info(`mdbook version: ${installVersion}`);
-    await installer(installVersion);
-    result = await showVersion('mdbook', ['--version']);
-
-    return result;
-  } catch (e) {
-    core.setFailed(`Action failed with error ${e}`);
-    return e;
+  if (toolVersion === '' || toolVersion === 'latest') {
+    installVersion = await getLatestVersion('rust-lang', 'mdbook', 'brew');
+  } else {
+    installVersion = toolVersion;
   }
+
+  core.info(`mdbook version: ${installVersion}`);
+  await installer(installVersion);
+  return showVersion('mdbook', ['--version']);
 }

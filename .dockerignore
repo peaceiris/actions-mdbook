@@ -1,6 +1,5 @@
 .*
 
-!.eslintrc.json
 !.prettierrc.json
 
 coverage

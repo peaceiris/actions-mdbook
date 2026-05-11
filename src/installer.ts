@@ -6,7 +6,7 @@ import {getURL} from './get-url';
 import * as path from 'path';
 
 export function getBaseLocation(): string {
-  let baseLocation: string = '';
+  let baseLocation: string;
 
   if (process.platform === 'win32') {
     baseLocation = process.env['USERPROFILE'] || 'C:\\';
@@ -47,7 +47,7 @@ export async function installer(version: string) {
   // Download and extract mdbook binary
   const tempDir: string = await createTempDir(baseLocation);
   const toolAssets: string = await tc.downloadTool(toolURL);
-  let toolBin: string = '';
+  let toolBin: string;
   if (process.platform === 'win32') {
     const toolExtractedFolder: string = await tc.extractZip(
       toolAssets,

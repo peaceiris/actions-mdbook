@@ -1,15 +1,9 @@
 import {getURL, getLatestVersion} from '../src/get-latest-version';
-const nock = require('nock');
-import {FetchError} from 'node-fetch';
 import jsonTestBrew from './data/brew.json';
 import jsonTestGithub from './data/github.json';
 
 beforeEach(() => {
-  jest.resetModules();
-});
-
-afterEach(() => {
-  nock.cleanAll();
+  jest.restoreAllMocks();
 });
 
 const org: string = 'rust-lang';
@@ -31,33 +25,36 @@ describe('getLatestVersion()', () => {
   let versionLatestExpected: string = '0.3.5';
 
   test('return latest version via brew', async () => {
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${repo}.json`)
-      .reply(200, jsonTestBrew);
+    jest.spyOn(global, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify(jsonTestBrew), {
+        headers: {'Content-Type': 'application/json'},
+        status: 200
+      })
+    );
 
     const versionLatest: string = await getLatestVersion(org, repo, 'brew');
     expect(versionLatest).toMatch(versionLatestExpected);
   });
 
   test('return latest version via GitHub', async () => {
-    nock('https://api.github.com')
-      .get(`/repos/${org}/${repo}/releases/latest`)
-      .reply(200, jsonTestGithub);
+    jest.spyOn(global, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify(jsonTestGithub), {
+        headers: {'Content-Type': 'application/json'},
+        status: 200
+      })
+    );
 
     const versionLatest: string = await getLatestVersion(org, repo, 'github');
     expect(versionLatest).toMatch(versionLatestExpected);
   });
 
   test('return exception 404', async () => {
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${repo}.json`)
-      .reply(404);
+    jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(new Response(null, {status: 404}));
 
-    try {
-      const versionLatest: string = await getLatestVersion(org, repo, 'brew');
-      console.debug(versionLatest);
-    } catch (e) {
-      expect(e).toThrow(FetchError);
-    }
+    await expect(getLatestVersion(org, repo, 'brew')).rejects.toThrow(
+      'Failed to fetch latest mdbook version'
+    );
   });
 });

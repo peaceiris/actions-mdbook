@@ -1,4 +1,4 @@
-FROM node:12-slim
+FROM node:24-slim
 
 WORKDIR /repo
 

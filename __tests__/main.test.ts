@@ -1,91 +1,110 @@
-import * as main from '../src/main';
-const nock = require('nock');
-import {FetchError} from 'node-fetch';
-import jsonTestBrew from './data/brew.json';
-// import jsonTestGithub from './data/github.json';
+jest.mock(
+  '@actions/core',
+  () => ({
+    debug: jest.fn(),
+    getInput: jest.fn(),
+    info: jest.fn(),
+    setFailed: jest.fn()
+  }),
+  {virtual: true}
+);
 
-jest.setTimeout(30000);
-const repo: string = 'mdbook';
+jest.mock(
+  '@actions/exec',
+  () => ({
+    exec: jest.fn()
+  }),
+  {virtual: true}
+);
+
+jest.mock('../src/get-latest-version', () => ({
+  getLatestVersion: jest.fn()
+}));
+
+jest.mock('../src/installer', () => ({
+  installer: jest.fn()
+}));
+
+import * as core from '@actions/core';
+import * as exec from '@actions/exec';
+import {getLatestVersion} from '../src/get-latest-version';
+import {installer} from '../src/installer';
+import * as main from '../src/main';
+
+const getInputMock = core.getInput as jest.MockedFunction<typeof core.getInput>;
+const execMock = exec.exec as jest.MockedFunction<typeof exec.exec>;
+const getLatestVersionMock = getLatestVersion as jest.MockedFunction<
+  typeof getLatestVersion
+>;
+const installerMock = installer as jest.MockedFunction<typeof installer>;
 
 beforeEach(() => {
-  jest.resetModules();
-});
+  jest.clearAllMocks();
 
-afterEach(() => {
-  delete process.env['INPUT_MDBOOK-VERSION'];
-  nock.cleanAll();
+  getInputMock.mockReturnValue('');
+  installerMock.mockResolvedValue(undefined);
+  execMock.mockImplementation(async (_cmd, _args, options) => {
+    options?.listeners?.stdout?.(Buffer.from('mdbook v0.3.5'));
+    return 0;
+  });
 });
 
 describe('Integration testing run()', () => {
   test('succeed in installing a custom version', async () => {
     const testVersion: string = '0.3.4';
-    process.env['INPUT_MDBOOK-VERSION'] = testVersion;
+    getInputMock.mockReturnValue(testVersion);
+    execMock.mockImplementation(async (_cmd, _args, options) => {
+      options?.listeners?.stdout?.(Buffer.from(`mdbook v${testVersion}`));
+      return 0;
+    });
+
     const result: main.actionResult = await main.run();
+
+    expect(installerMock).toHaveBeenCalledWith(testVersion);
     expect(result.output).toMatch(`mdbook v${testVersion}`);
   });
 
   test('succeed in installing the latest version', async () => {
-    const testVersion: string = 'latest';
-    process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${repo}.json`)
-      .reply(200, jsonTestBrew);
+    getInputMock.mockReturnValue('latest');
+    getLatestVersionMock.mockResolvedValue('0.3.5');
+
     const result: main.actionResult = await main.run();
+
+    expect(getLatestVersionMock).toHaveBeenCalledWith(
+      'rust-lang',
+      'mdbook',
+      'brew'
+    );
+    expect(installerMock).toHaveBeenCalledWith('0.3.5');
     expect(result.output).toMatch('mdbook v0.3.5');
   });
 
-  if (process.platform === 'linux') {
-    test('fail to install a custom version due to 404 of tarball', async () => {
-      const testVersion: string = '0.3.4';
-      process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-      nock('https://github.com')
-        .get(
-          `/rust-lang/mdBook/releases/download/v${testVersion}/mdbook-v${testVersion}-x86_64-unknown-linux-gnu.tar.gz`
-        )
-        .reply(404);
-      try {
-        const result: main.actionResult = await main.run();
-        console.debug(result.output);
-      } catch (e) {
-        expect(e).toThrow(FetchError);
-      }
-    });
-  }
+  test('fail to install a custom version due to 404 of tarball', async () => {
+    const testVersion: string = '0.3.4';
+    getInputMock.mockReturnValue(testVersion);
+    installerMock.mockRejectedValue(new Error('Unexpected HTTP response: 404'));
 
-  test('fail to install the latest version due to 404 of brew.sh', async () => {
-    const testVersion: string = 'latest';
-    process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${repo}.json`)
-      .reply(404);
-    try {
-      const result: main.actionResult = await main.run();
-      console.debug(result.output);
-    } catch (e) {
-      expect(e).toThrow(FetchError);
-    }
+    await expect(main.run()).rejects.toThrow('Unexpected HTTP response: 404');
   });
 
-  if (process.platform === 'linux') {
-    test('fail to install the latest version due to 404 of tarball', async () => {
-      const testVersion: string = 'latest';
-      process.env['INPUT_MDBOOK-VERSION'] = testVersion;
-      nock('https://formulae.brew.sh')
-        .get(`/api/formula/${repo}.json`)
-        .reply(200, jsonTestBrew);
-      nock('https://github.com')
-        .get(
-          `/rust-lang/mdBook/releases/download/v0.3.5/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz`
-        )
-        .reply(404);
-      try {
-        const result: main.actionResult = await main.run();
-        console.debug(result.output);
-      } catch (e) {
-        expect(e).toThrow(FetchError);
-      }
-    });
-  }
+  test('fail to install the latest version due to 404 of brew.sh', async () => {
+    getInputMock.mockReturnValue('latest');
+    getLatestVersionMock.mockRejectedValue(
+      new Error('Failed to fetch latest mdbook version')
+    );
+
+    await expect(main.run()).rejects.toThrow(
+      'Failed to fetch latest mdbook version'
+    );
+  });
+
+  test('fail to install the latest version due to 404 of tarball', async () => {
+    getInputMock.mockReturnValue('latest');
+    getLatestVersionMock.mockResolvedValue('0.3.5');
+    installerMock.mockRejectedValue(new Error('Unexpected HTTP response: 404'));
+
+    await expect(main.run()).rejects.toThrow('Unexpected HTTP response: 404');
+  });
 });
 
 describe('showVersion()', () => {
@@ -95,16 +114,22 @@ describe('showVersion()', () => {
   };
 
   test('return version', async () => {
+    execMock.mockImplementation(async (_cmd, _args, options) => {
+      options?.listeners?.stdout?.(Buffer.from('git version 2.50.0'));
+      return 0;
+    });
+
     result = await main.showVersion('git', ['--version']);
+
     expect(result.exitcode).toBe(0);
     expect(result.output).toMatch(/git version/);
   });
 
   test('return exception', async () => {
-    try {
-      result = await main.showVersion('gitgit', ['--version']);
-    } catch (e) {
-      expect(e).toThrow(Error);
-    }
+    execMock.mockRejectedValue(new Error('Unable to locate executable file'));
+
+    await expect(main.showVersion('gitgit', ['--version'])).rejects.toThrow(
+      'Unable to locate executable file'
+    );
   });
 });
