@@ -22,7 +22,7 @@ assets live in `images/`.
 - `make build`: build the Docker test image.
 - `make test`: run `npm test` inside the Docker test container.
 
-Use Node `20.12.1` from `.nvmrc` when working locally.
+Use Node `24.15.0` from `.nvmrc` when working locally.
 
 ## Coding Style & Naming Conventions
 
